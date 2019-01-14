@@ -1774,7 +1774,7 @@ $(document).ready(function () {
 <p>This notebook requires:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBwcmltYXJ5IGRhdGEgdG9vbHNcbmxpYnJhcnkoY29tcHN0YXRyKSAgICAgIyB3b3JrIHdpdGggc3RsbXBkIGNyaW1lIGRhdGFcblxuIyB0aWR5dmVyc2UgcGFja2FnZXNcbmxpYnJhcnkoZHBseXIpICAgICAgICAgIyBkYXRhIHdyYW5nbGluZ1xubGlicmFyeShyZWFkcikgICAgICAgICAjIHdvcmtpbmcgd2l0aCBjc3YgZGF0YVxuXG4jIHNwYXRpYWwgcGFja2FnZXNcbmxpYnJhcnkoc2YpICAgICAgICAgICAgIyB3b3JraW5nIHdpdGggc3BhdGlhbCBkYXRhXG5saWJyYXJ5KHRpZ3JpcykgICAgICAgICMgdGlnZXIvbGluZSBhcGkgYWNjZXNzXG5cbiMgb3RoZXIgcGFja2FnZXNcbmxpYnJhcnkoamFuaXRvcikgICAgICAgIyBmcmVxdWVuY3kgdGFibGVzXG5saWJyYXJ5KGhlcmUpICAgICAgICAgICMgZmlsZSBwYXRoIG1hbmFnZW1lbnRcbmxpYnJhcnkoa25pdHIpICAgICAgICAgIyBvdXRwdXRcbmxpYnJhcnkodGVzdHRoYXQpICAgICAgIyB1bml0IHRlc3RpbmdcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBwcmltYXJ5IGRhdGEgdG9vbHNcbmxpYnJhcnkoY29tcHN0YXRyKSAgICAgIyB3b3JrIHdpdGggc3RsbXBkIGNyaW1lIGRhdGFcblxuIyB0aWR5dmVyc2UgcGFja2FnZXNcbmxpYnJhcnkoZHBseXIpICAgICAgICAgIyBkYXRhIHdyYW5nbGluZ1xubGlicmFyeShyZWFkcikgICAgICAgICAjIHdvcmtpbmcgd2l0aCBjc3YgZGF0YVxuXG4jIHNwYXRpYWwgcGFja2FnZXNcbmxpYnJhcnkoc2YpICAgICAgICAgICAgIyB3b3JraW5nIHdpdGggc3BhdGlhbCBkYXRhXG5gYGAifQ== -->
 <pre class="r"><code># primary data tools
 library(compstatr)     # work with stlmpd crime data
 
@@ -1783,15 +1783,45 @@ library(dplyr)         # data wrangling
 library(readr)         # working with csv data
 
 # spatial packages
-library(sf)            # working with spatial data
-library(tigris)        # tiger/line api access
+library(sf)            # working with spatial data</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTGlua2luZyB0byBHRU9TIDMuNi4xLCBHREFMIDIuMS4zLCBQUk9KIDQuOS4zXG4ifQ== -->
+<pre><code>Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5Y2Vuc3VzKVxubGlicmFyeSh0aWdyaXMpICAgICAgICAjIHRpZ2VyL2xpbmUgYXBpIGFjY2Vzc1xuYGBgIn0= -->
+<pre class="r"><code>library(tidycensus)
+library(tigris)        # tiger/line api access</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiVG8gZW5hYmxlIFxuY2FjaGluZyBvZiBkYXRhLCBzZXQgYG9wdGlvbnModGlncmlzX3VzZV9jYWNoZSA9IFRSVUUpYCBpbiB5b3VyIFIgc2NyaXB0IG9yIC5ScHJvZmlsZS5cblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmHRpZ3Jpc+KAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmdyYXBoaWNz4oCZOlxuXG4gICAgcGxvdFxuIn0= -->
+<pre><code>To enable 
+caching of data, set `options(tigris_use_cache = TRUE)` in your R script or .Rprofile.
 
-# other packages
+Attaching package: ‘tigris’
+
+The following object is masked from ‘package:graphics’:
+
+    plot</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBvdGhlciBwYWNrYWdlc1xubGlicmFyeShqYW5pdG9yKSAgICAgICAjIGZyZXF1ZW5jeSB0YWJsZXNcbmxpYnJhcnkoaGVyZSkgICAgICAgICAgIyBmaWxlIHBhdGggbWFuYWdlbWVudFxuYGBgIn0= -->
+<pre class="r"><code># other packages
 library(janitor)       # frequency tables
-library(here)          # file path management
-library(knitr)         # output
+library(here)          # file path management</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lXG4ifQ== -->
+<pre><code>here() starts at /Users/chris/GitHub/openGIS/shawCrime</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShrbml0cikgICAgICAgICAjIG91dHB1dFxubGlicmFyeSh0ZXN0dGhhdCkgICAgICAjIHVuaXQgdGVzdGluZ1xuYGBgIn0= -->
+<pre class="r"><code>library(knitr)         # output
 library(testthat)      # unit testing</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYdGVzdHRoYXTigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpkcGx5cuKAmTpcblxuICAgIG1hdGNoZXNcbiJ9 -->
+<pre><code>
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:dplyr’:
+
+    matches</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1806,6 +1836,12 @@ cd ..
 # execute cleaning script
 bash source/reformatHTML.sh</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibWtkaXI6IGRhdGEvaW50ZXJtZWRpYXRlLzIwMTU6IEZpbGUgZXhpc3RzXG5ta2RpcjogZGF0YS9pbnRlcm1lZGlhdGUvMjAxNjogRmlsZSBleGlzdHNcbm1rZGlyOiBkYXRhL2ludGVybWVkaWF0ZS8yMDE3OiBGaWxlIGV4aXN0c1xubWtkaXI6IGRhdGEvaW50ZXJtZWRpYXRlLzIwMTg6IEZpbGUgZXhpc3RzXG4ifQ== -->
+<pre><code>mkdir: data/intermediate/2015: File exists
+mkdir: data/intermediate/2016: File exists
+mkdir: data/intermediate/2017: File exists
+mkdir: data/intermediate/2018: File exists</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1822,10 +1858,1107 @@ data2018 &lt;- cs_load_year(here(&quot;data&quot;, &quot;intermediate&quot;, &qu
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="validate-data" class="section level2">
+<h2>Validate Data</h2>
+<div id="section" class="section level3">
+<h3>2015</h3>
+<p>Next we make sure there are no problems with the crime files in terms of incongruent columns for 2015:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNSwgeWVhciA9IFwiMjAxNVwiKVxuYGBgIn0= -->
+<pre class="r"><code>cs_validate_year(data2015, year = &quot;2015&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can use the <code>verbose = TRUE</code> option on <code>cs_validate_year()</code> to identify areas where the validation checks have failed:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNSwgeWVhciA9IFwiMjAxNVwiLCB2ZXJib3NlID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>cs_validate_year(data2015, year = &quot;2015&quot;, verbose = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZVUzA3RE1CQjFmalNKV2dUaUhJMEVFZ2VvV3JHb1ZKQ29oTXB5bXBvU3liVWp4eW13NDZaY2duWERPTEhiTkx1eWF5UW44NTdITStOblQ1NG5pN3Q0RVJOQ1hPSUZMbkU5TkgwWFh3N3hTYVMvbjRSNE4yaG9jSVdqYnlaNlUrQWx5QzhEd3dlNmxDMGN6RUNtN3hhTWNwa3hBN3daV0NkL1duSjZzSm5sTDBibHVpeVVRZEdjNW9wdWxsVGExRStwRWdjWVBvcHRlenFjMExUQjUxaHhYRmVzRCtDME1Xalc5WDVPRy8vT2QyN3JUbnlPbWlCSUdSUUZhYTZUSmVNVktFamVKR3hveHoyUzRpUGh5QmZtWE54dmZGVlY5ZHVOYTUxMDNNakcxZVJxSnJpeWx6Rk94ZXFZQ2JmQTJqaXFQVjRwN0M4Y09yUmdLRGp0ckpkalVYTFZjbjhCV2RpRUNNZDZ5M1Z4dTA3VlBaR3JUSENjY3ZXUEllam80c2dPY1kzUk1oU0xEclZpdC9mRHJUa1d4Mmc5TUhhL1pVZE5Vcjh5d1FMYmFKU3ZzMzBMQmd5VzFMYnBKY3BlQzVwZzcrNjNGaU5iSkVvb1lBYzVtV1hxM1pIZEgvV2hjc1lJQlFBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["namedMonth"],"name":[1],"type":["chr"],"align":["left"]},{"label":["codedMonth"],"name":[2],"type":["chr"],"align":["left"]},{"label":["valMonth"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["codedYear"],"name":[4],"type":["int"],"align":["right"]},{"label":["valYear"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["oneMonth"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["varCount"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["valVars"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["valClasses"],"name":[9],"type":["lgl"],"align":["right"]}],"data":[{"1":"January","2":"January","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"February","2":"February","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"March","2":"March","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"April","2":"April","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"May","2":"May","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"June","2":"June","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"July","2":"July","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"August","2":"August","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"September","2":"September","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"October","2":"October","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"November","2":"November","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"December","2":"December","3":"TRUE","4":"2015","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[9]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Since thhere are only issues with the class validation, we’re going to consider these validated for now.</p>
+</div>
+<div id="section-1" class="section level3">
+<h3>2015</h3>
+<p>We’ll repeat the same validation for 2016:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNiwgeWVhciA9IFwiMjAxNlwiKVxuYGBgIn0= -->
+<pre class="r"><code>cs_validate_year(data2016, year = &quot;2016&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can use the <code>verbose = TRUE</code> option on <code>cs_validate_year()</code> to identify areas where the validation checks have failed:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNiwgeWVhciA9IFwiMjAxNlwiLCB2ZXJib3NlID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>cs_validate_year(data2016, year = &quot;2016&quot;, verbose = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZVUFUvRE1CQjF2bWdTdFFqRTcyZ2tHTmlyVmd5VkNoS1ZVQm12cVNtUlhEdHluQUliUDVVZndkeHdUdXcyelZhMlJuSnk3L2w4ZDM3MjVYbXl1SXNYTVNIRUpWN2dFdGREMDNmeDVSQ2ZSUHI3U1loM2c0WUdWemo2WnFJM0JWNkMvREl3ZktCTDJjTEJER1Q2YnNFb2x4a3p3SnVCZGZLbkphY0htMW4rWWxTdXkwSVpGTTFwcnVobVNhVk4vWlFxY1lEaG85aTJwOE1KVFJ0OGpoWEhkY1g2QUU0YmcyWmQ3K2UwOGU5ODU3YnV4T2VvQ1lLVVFWR1E1anBaTWw2Qmd1Uk53b1oyM0NNcFBoS09mR0hPeGYzR1YxVlZ2OTI0MWtuSGpXeGNUYTVtZ2l0N0dlTlVySTZaY0F1c2phUGE0NVhDL3NLaFF3dUdndFBPZWprV0pWY3Q5eGVRaFUySWNLeTNYQmUzNjFUZEU3bktCTWNwVi84WWdvNHVqdXdRMXhndFE3SG9VQ3QyZXovY21tTnhqTllEWS9kYmR0UWs5U3NUTExDTlJ2azYyN2Rnd0dCSmJadGVvdXkxb0FuMjduNXJNYkpGb29RQ2RwQ1RXYWJlSGRuOUFSV2QrNEVJQlFBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["namedMonth"],"name":[1],"type":["chr"],"align":["left"]},{"label":["codedMonth"],"name":[2],"type":["chr"],"align":["left"]},{"label":["valMonth"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["codedYear"],"name":[4],"type":["int"],"align":["right"]},{"label":["valYear"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["oneMonth"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["varCount"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["valVars"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["valClasses"],"name":[9],"type":["lgl"],"align":["right"]}],"data":[{"1":"January","2":"January","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"February","2":"February","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"March","2":"March","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"April","2":"April","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"May","2":"May","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"June","2":"June","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"July","2":"July","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"August","2":"August","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"September","2":"September","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"October","2":"October","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"November","2":"November","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"December","2":"December","3":"TRUE","4":"2016","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[9]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Since thhere are only issues with the class validation, we’re going to consider these validated for now.</p>
+</div>
+<div id="section-2" class="section level3">
+<h3>2017</h3>
+<p>All of the data passes the validation checks.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNywgeWVhciA9IFwiMjAxN1wiKVxuYGBgIn0= -->
+<pre class="r"><code>cs_validate_year(data2017, year = &quot;2017&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can use the <code>verbose = TRUE</code> option on <code>cs_validate_year()</code> to identify areas where the validation checks have failed:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNywgeWVhciA9IFwiMjAxN1wiLCB2ZXJib3NlID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>cs_validate_year(data2017, year = &quot;2017&quot;, verbose = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZVVDAvQ01CUXYreVBiQWtiajUyQ0pYandUaUFjU05KSEU0TEZzRlplVWR1azYxQnRmMWUvZ21mbTZ0VERxUllnWGwzUjd2MS9mdjc3WHQ4ZngvQ2FhUndnaEI3bStneHdYUk0rQlZ3ZDVLRlRmZDRUY0t4QVV1SURWMHh2ZENXWWxGaDhhQm5ka0lWclluMktSdkJvd3pFVkdOWENuMkNoNWs1S1J2VXdOZnpZc2wyVWhOUXBuSkpka3RTRENoSDVJSk4vRDRKNnYyOXZCbUNRTi9vOFpSM1hHcWdISHJYNWoxLzA4YnAwYzc2L3QwQ2wybTkvYkhUd2JtL2p4SEF5Qm4xQmNGS2k1VG9hTVVpeHgvQ0x3aWxqcW9lQnZNUU8rMEgxeFZMeXFxcjVzdjBaSitRMk5YMFdtVTg2a3VZeFJ3dE5ESmxoajJzWmhyZkZNOE83Q2dVSUxCcHdSeTE2TWVNbGtTLzBKaThJRUJEaFNSNjZUMjFwWmQza3VNODVneTFFL0J0K3FTMGRZeENWNHk2QllaS0FxZG4wN1dPdTJtTGIzdGR4cnlXRVQxS3UwTTk4TUdtSExiRGVDUHNVTFlzYjBITXBlRnpTRzJkMGRMUUsyaUNXWG1PN0xTUTFUbnc1dHZ3SDhEbWd6Q0FVQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["namedMonth"],"name":[1],"type":["chr"],"align":["left"]},{"label":["codedMonth"],"name":[2],"type":["chr"],"align":["left"]},{"label":["valMonth"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["codedYear"],"name":[4],"type":["int"],"align":["right"]},{"label":["valYear"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["oneMonth"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["varCount"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["valVars"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["valClasses"],"name":[9],"type":["lgl"],"align":["right"]}],"data":[{"1":"January","2":"January","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"February","2":"February","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"March","2":"March","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"April","2":"April","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"May","2":"May","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"FALSE","8":"NA","9":"NA"},{"1":"June","2":"June","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"July","2":"July","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"August","2":"August","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"September","2":"September","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"October","2":"October","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"November","2":"November","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"December","2":"December","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[9]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The data for May 2017 do not pass the validation checks. We can extract this month and confirm that there are too many columns in the May 2017 release. Once we have that confirmed, we can standardize that month and re-run our validation.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBleHRyYWN0IGRhdGFcbm1heTIwMTcgPC0gY3NfZXh0cmFjdF9tb250aChkYXRhMjAxNywgbW9udGggPSBcIk1heVwiKVxuIyB1bml0IHRlc3QgY29sdW1uIG51bWJlclxuZXhwZWN0X2VxdWFsKG5jb2wobWF5MjAxNyksIDI2KVxuIyByZW1vdmUgb2JqZWN0XG5ybShtYXkyMDE3KVxuIyBzdGFuZGFyZGl6ZSBtb250aHNcbmRhdGEyMDE3IDwtIGNzX3N0YW5kYXJkaXplKGRhdGEyMDE3LCBtb250aCA9IFwiTWF5XCIsIGNvbmZpZyA9IDI2KVxuIyB2YWxpZGF0ZSBkYXRhXG5jc192YWxpZGF0ZV95ZWFyKGRhdGEyMDE3LCB5ZWFyID0gXCIyMDE3XCIpXG5gYGAifQ== -->
+<pre class="r"><code># extract data
+may2017 &lt;- cs_extract_month(data2017, month = &quot;May&quot;)
+# unit test column number
+expect_equal(ncol(may2017), 26)
+# remove object
+rm(may2017)
+# standardize months
+data2017 &lt;- cs_standardize(data2017, month = &quot;May&quot;, config = 26)
+# validate data
+cs_validate_year(data2017, year = &quot;2017&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We still get a <code>FALSE</code> value for <code>cs_validate_year()</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNywgeWVhciA9IFwiMjAxN1wiLCB2ZXJib3NlID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>cs_validate_year(data2017, year = &quot;2017&quot;, verbose = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZVUFUvRE1CQjF2bWdTdFFqQjcyZ2t1akJYclJncUZTU1FVQm12aVNtUlhMdHluQUliZjVYL3dOeHdUdXcyelZhMlJuSnk3L2w4ZDM3MjVXbTZHTVdMbUJEaUVpOXdpZXVoNmJ2NGNvaFBJdjM5Sk1TN1FVT0RLeHg5TTlHYkFTOUJmaGtZM3RPbGJPRmdEako5dDJDOGtUa3p3SnVEZGZKbkphY0htMW4rWWx5dXlrSVpGRDNUamFMckpaVTI5V09xeEFHR0QyTGJuZzZuTkczd09WWWMxeFhyQXpodERKcDF2Wi9UeHIvem5kdTZFNStqSmdoU0JrVkJtdXRreVRnREJjbWJoRFh0dUVkU2ZDUWMrY0tjaS91TnI2cXFmcnR4clpPT0c5bTRtc3ptZ2l0N0dlTlVaTWRNdUFYV3hsSHQ4VXBoZitIUW9RVkR3V2xudlp5SWtxdVcrd3ZJd2laRU9ORmJyb3ZiZGFydWlZM0tCY2NwVi84WWdvNHVqdXdRMXhndFI3SG9VQ3QyZXpmY2pzeTVPRWJzZ2JIN0xUdHFzdnFWaVJiWVRxTjhsZTk3TUdDd3BMWlBMMUgzV3RFRW0zZS90eGpaSWxGQ0FUdm95U3hUYjQvcy9nQzZZeWtPQ1FVQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["namedMonth"],"name":[1],"type":["chr"],"align":["left"]},{"label":["codedMonth"],"name":[2],"type":["chr"],"align":["left"]},{"label":["valMonth"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["codedYear"],"name":[4],"type":["int"],"align":["right"]},{"label":["valYear"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["oneMonth"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["varCount"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["valVars"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["valClasses"],"name":[9],"type":["lgl"],"align":["right"]}],"data":[{"1":"January","2":"January","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"February","2":"February","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"March","2":"March","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"April","2":"April","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"May","2":"May","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"June","2":"June","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"July","2":"July","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"August","2":"August","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"September","2":"September","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"October","2":"October","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"November","2":"November","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"December","2":"December","3":"TRUE","4":"2017","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[9]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We’ve now limited the validation issues to the classes.</p>
+</div>
+<div id="section-3" class="section level3">
+<h3>2018</h3>
+<p>Finally, we’ll attempt to validate the 2018 data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxOCwgeWVhciA9IFwiMjAxOFwiKVxuYGBgIn0= -->
+<pre class="r"><code>cs_validate_year(data2018, year = &quot;2018&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now with the <code>verbose = TRUE</code> option:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxOCwgeWVhciA9IFwiMjAxOFwiLCB2ZXJib3NlID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>cs_validate_year(data2018, year = &quot;2018&quot;, verbose = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZVUFUvRE1CQjF2bWdTdFFqRTcyZ2ttRmlyVmd5VkNoS1ZVQm12cVNtUlhEdHluQUlidjVYZndOeHdUdXcyelZhMlJuSnk3L2w4ZDM3MjVYbXl1SXNYTVNIRUpWN2dFdGREMDNmeDVSQ2ZSUHI3U1loM2c0WUdWemo2WnFJM0JWNkMvREl3ZktCTDJjTEJER1Q2YnNFb2x4a3p3SnVCZGZLbkphY0htMW4rWWxTdXkwSVpGTTFwcnVobVNhVk4vWlFxY1lEaG85aTJwOE1KVFJ0OGpoWEhkY1g2QUU0YmcyWmQ3K2UwOGU5ODU3YnV4T2VvQ1lLVVFWR1E1anBaTWw2Qmd1Uk53b1oyM0NNcFBoS09mR0hPeGYzR1YxVlZ2OTI0MWtuSGpXeGNUYTVtZ2l0N0dlTlVySTZaY0F1c2phUGE0NVhDL3NLaFF3dUdndFBPZWprV0pWY3Q5eGVRaFUySWNLeTNYQmUzNjFUZEU3bktCTWNwVi84WWdvNHVqdXdRMXhndFE3SG9VQ3QyZXovY21tTnhqTllEWS9kYmR0UWs5U3NUTExDTlJ2azYyN2Rnd0dCSmJadGVvdXkxb0FuMjduNXJNYkpGb29RQ2RwQ1RXYWJlSGRuOUFkYldNSW9JQlFBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["namedMonth"],"name":[1],"type":["chr"],"align":["left"]},{"label":["codedMonth"],"name":[2],"type":["chr"],"align":["left"]},{"label":["valMonth"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["codedYear"],"name":[4],"type":["int"],"align":["right"]},{"label":["valYear"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["oneMonth"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["varCount"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["valVars"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["valClasses"],"name":[9],"type":["lgl"],"align":["right"]}],"data":[{"1":"January","2":"January","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"February","2":"February","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"March","2":"March","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"April","2":"April","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"May","2":"May","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"June","2":"June","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"July","2":"July","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"August","2":"August","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"September","2":"September","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"October","2":"October","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"November","2":"November","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"},{"1":"December","2":"December","3":"TRUE","4":"2018","5":"TRUE","6":"TRUE","7":"TRUE","8":"TRUE","9":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[9]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="collapse-data" class="section level2">
+<h2>Collapse Data</h2>
+<p>With the data validated, we collapse each year into a single, flat object:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YTIwMTVfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxNSlcbmRhdGEyMDE2X2ZsYXQgPC0gY3NfY29sbGFwc2UoZGF0YTIwMTYpXG5kYXRhMjAxN19mbGF0IDwtIGNzX2NvbGxhcHNlKGRhdGEyMDE3KVxuZGF0YTIwMThfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxOClcbmBgYCJ9 -->
+<pre class="r"><code>data2015_flat &lt;- cs_collapse(data2015)
+data2016_flat &lt;- cs_collapse(data2016)
+data2017_flat &lt;- cs_collapse(data2017)
+data2018_flat &lt;- cs_collapse(data2018)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>What we need for this project is a single object with only the crimes for 2016. Since crimes were <em>reported</em> in subsequent years for 2015 (as well as 2016 and 2017), we need to merge all the tables and then retain only the relevant year’s data. The <code>cs_combine()</code> function will do this:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWVzMjAxNSA8LSBjc19jb21iaW5lKHR5cGUgPSBcInllYXJcIiwgZGF0ZSA9IDIwMTUsIGRhdGEyMDE1X2ZsYXQsIGRhdGEyMDE2X2ZsYXQsIGRhdGEyMDE3X2ZsYXQsIGRhdGEyMDE4X2ZsYXQpXG5jcmltZXMyMDE2IDwtIGNzX2NvbWJpbmUodHlwZSA9IFwieWVhclwiLCBkYXRlID0gMjAxNiwgZGF0YTIwMTZfZmxhdCwgZGF0YTIwMTdfZmxhdCwgZGF0YTIwMThfZmxhdClcbmNyaW1lczIwMTcgPC0gY3NfY29tYmluZSh0eXBlID0gXCJ5ZWFyXCIsIGRhdGUgPSAyMDE3LCBkYXRhMjAxN19mbGF0LCBkYXRhMjAxOF9mbGF0KVxuY3JpbWVzMjAxOCA8LSBjc19jb21iaW5lKHR5cGUgPSBcInllYXJcIiwgZGF0ZSA9IDIwMTgsIGRhdGEyMDE4X2ZsYXQpXG5gYGAifQ== -->
+<pre class="r"><code>crimes2015 &lt;- cs_combine(type = &quot;year&quot;, date = 2015, data2015_flat, data2016_flat, data2017_flat, data2018_flat)
+crimes2016 &lt;- cs_combine(type = &quot;year&quot;, date = 2016, data2016_flat, data2017_flat, data2018_flat)
+crimes2017 &lt;- cs_combine(type = &quot;year&quot;, date = 2017, data2017_flat, data2018_flat)
+crimes2018 &lt;- cs_combine(type = &quot;year&quot;, date = 2018, data2018_flat)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="clean-up-enviornment" class="section level3">
+<h3>Clean-up Enviornment</h3>
+<p>With our data created, we can remove some of the intermediary objects we’ve created:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm0oZGF0YTIwMTUsIGRhdGEyMDE1X2ZsYXQsIGRhdGEyMDE2LCBkYXRhMjAxNl9mbGF0LCBkYXRhMjAxNywgZGF0YTIwMTdfZmxhdCwgZGF0YTIwMTgsIGRhdGEyMDE4X2ZsYXQpXG5gYGAifQ== -->
+<pre class="r"><code>rm(data2015, data2015_flat, data2016, data2016_flat, data2017, data2017_flat, data2018, data2018_flat)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="remove-unfounded-crimes-and-subset-based-on-type-of-crime" class="section level2">
+<h2>Remove Unfounded Crimes and Subset Based on Type of Crime:</h2>
+<p>The following code chunk removes unfounded crimes (those where <code>Count == -1</code>) and then creates a data frame for all part one crimes for each year. We also print the number of crimes missing spatial data. In general, these tend to be rapes.</p>
+<div id="section-4" class="section level3">
+<h3>2015</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWVzMjAxNSAlPiUgXG4gIGNzX2ZpbHRlcl9jb3VudCh2YXIgPSBDb3VudCkgJT4lXG4gIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSBcIlBhcnQgMVwiKSAlPiVcbiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gXCJzdHJpbmdcIikgJT4lXG4gIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JVxuICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCBcbiAgICAgICAgIElMRUFEU0FkZHJlc3MsIElMRUFEU1N0cmVldCwgWENvb3JkLCBZQ29vcmQsIHh5U3RhdHVzKSAtPiBwMV8yMDE1XG5cbnAxXzIwMTUgJT4lXG4gIHRhYnlsKHh5U3RhdHVzKSAlPiVcbiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lXG4gIGthYmxlKClcbmBgYCJ9 -->
+<pre class="r"><code>crimes2015 %&gt;% 
+  cs_filter_count(var = Count) %&gt;%
+  cs_filter_crime(var = Crime, crime = &quot;Part 1&quot;) %&gt;%
+  cs_crime_cat(var = Crime, newVar = crimeCat, output = &quot;string&quot;) %&gt;%
+  cs_missing_xy(varx = XCoord, vary = YCoord, newVar = xyStatus) %&gt;%
+  select(Complaint, DateOccur, Crime, crimeCat, District, Description, 
+         ILEADSAddress, ILEADSStreet, XCoord, YCoord, xyStatus) -&gt; p1_2015
+
+p1_2015 %&gt;%
+  tabyl(xyStatus) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">xyStatus</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">FALSE</td>
+<td align="right">25955</td>
+<td align="left">98.326%</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE</td>
+<td align="right">442</td>
+<td align="left">1.674%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNSAlPiVcbiAgdGFieWwoY3JpbWVDYXQpICU+JVxuICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiVcbiAga2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>p1_2015 %&gt;%
+  tabyl(crimeCat) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">crimeCat</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Aggravated Assault</td>
+<td align="right">3529</td>
+<td align="left">13.369%</td>
+</tr>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">240</td>
+<td align="left">0.909%</td>
+</tr>
+<tr class="odd">
+<td align="left">Burgalry</td>
+<td align="right">4247</td>
+<td align="left">16.089%</td>
+</tr>
+<tr class="even">
+<td align="left">Forcible Rape</td>
+<td align="right">236</td>
+<td align="left">0.894%</td>
+</tr>
+<tr class="odd">
+<td align="left">Homicide</td>
+<td align="right">194</td>
+<td align="left">0.735%</td>
+</tr>
+<tr class="even">
+<td align="left">Larceny</td>
+<td align="right">12739</td>
+<td align="left">48.259%</td>
+</tr>
+<tr class="odd">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">3359</td>
+<td align="left">12.725%</td>
+</tr>
+<tr class="even">
+<td align="left">Robbery</td>
+<td align="right">1853</td>
+<td align="left">7.020%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-5" class="section level3">
+<h3>2016</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWVzMjAxNiAlPiUgXG4gIGNzX2ZpbHRlcl9jb3VudCh2YXIgPSBDb3VudCkgJT4lXG4gIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSBcIlBhcnQgMVwiKSAlPiVcbiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gXCJzdHJpbmdcIikgJT4lXG4gIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JVxuICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCBcbiAgICAgICAgIElMRUFEU0FkZHJlc3MsIElMRUFEU1N0cmVldCwgWENvb3JkLCBZQ29vcmQsIHh5U3RhdHVzKSAtPiBwMV8yMDE2XG5cbnAxXzIwMTYgJT4lXG4gIHRhYnlsKHh5U3RhdHVzKSAlPiVcbiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lXG4gIGthYmxlKClcbmBgYCJ9 -->
+<pre class="r"><code>crimes2016 %&gt;% 
+  cs_filter_count(var = Count) %&gt;%
+  cs_filter_crime(var = Crime, crime = &quot;Part 1&quot;) %&gt;%
+  cs_crime_cat(var = Crime, newVar = crimeCat, output = &quot;string&quot;) %&gt;%
+  cs_missing_xy(varx = XCoord, vary = YCoord, newVar = xyStatus) %&gt;%
+  select(Complaint, DateOccur, Crime, crimeCat, District, Description, 
+         ILEADSAddress, ILEADSStreet, XCoord, YCoord, xyStatus) -&gt; p1_2016
+
+p1_2016 %&gt;%
+  tabyl(xyStatus) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">xyStatus</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">FALSE</td>
+<td align="right">24954</td>
+<td align="left">98.078%</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE</td>
+<td align="right">489</td>
+<td align="left">1.922%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNiAlPiVcbiAgdGFieWwoY3JpbWVDYXQpICU+JVxuICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiVcbiAga2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>p1_2016 %&gt;%
+  tabyl(crimeCat) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">crimeCat</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Aggravated Assault</td>
+<td align="right">3668</td>
+<td align="left">14.417%</td>
+</tr>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">297</td>
+<td align="left">1.167%</td>
+</tr>
+<tr class="odd">
+<td align="left">Burgalry</td>
+<td align="right">3270</td>
+<td align="left">12.852%</td>
+</tr>
+<tr class="even">
+<td align="left">Forcible Rape</td>
+<td align="right">281</td>
+<td align="left">1.104%</td>
+</tr>
+<tr class="odd">
+<td align="left">Homicide</td>
+<td align="right">201</td>
+<td align="left">0.790%</td>
+</tr>
+<tr class="even">
+<td align="left">Larceny</td>
+<td align="right">12511</td>
+<td align="left">49.173%</td>
+</tr>
+<tr class="odd">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">3275</td>
+<td align="left">12.872%</td>
+</tr>
+<tr class="even">
+<td align="left">Robbery</td>
+<td align="right">1940</td>
+<td align="left">7.625%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-6" class="section level3">
+<h3>2017</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWVzMjAxNyAlPiUgXG4gIGNzX2ZpbHRlcl9jb3VudCh2YXIgPSBDb3VudCkgJT4lXG4gIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSBcIlBhcnQgMVwiKSAlPiVcbiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gXCJzdHJpbmdcIikgJT4lXG4gIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JVxuICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCBcbiAgICAgICAgIElMRUFEU0FkZHJlc3MsIElMRUFEU1N0cmVldCwgWENvb3JkLCBZQ29vcmQsIHh5U3RhdHVzKSAtPiBwMV8yMDE3XG5cbnAxXzIwMTcgJT4lXG4gIHRhYnlsKHh5U3RhdHVzKSAlPiVcbiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lXG4gIGthYmxlKClcbmBgYCJ9 -->
+<pre class="r"><code>crimes2017 %&gt;% 
+  cs_filter_count(var = Count) %&gt;%
+  cs_filter_crime(var = Crime, crime = &quot;Part 1&quot;) %&gt;%
+  cs_crime_cat(var = Crime, newVar = crimeCat, output = &quot;string&quot;) %&gt;%
+  cs_missing_xy(varx = XCoord, vary = YCoord, newVar = xyStatus) %&gt;%
+  select(Complaint, DateOccur, Crime, crimeCat, District, Description, 
+         ILEADSAddress, ILEADSStreet, XCoord, YCoord, xyStatus) -&gt; p1_2017
+
+p1_2017 %&gt;%
+  tabyl(xyStatus) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">xyStatus</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">FALSE</td>
+<td align="right">25367</td>
+<td align="left">98.033%</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE</td>
+<td align="right">509</td>
+<td align="left">1.967%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNyAlPiVcbiAgdGFieWwoY3JpbWVDYXQpICU+JVxuICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiVcbiAga2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>p1_2017 %&gt;%
+  tabyl(crimeCat) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">crimeCat</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Aggravated Assault</td>
+<td align="right">4074</td>
+<td align="left">15.744%</td>
+</tr>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">230</td>
+<td align="left">0.889%</td>
+</tr>
+<tr class="odd">
+<td align="left">Burgalry</td>
+<td align="right">3203</td>
+<td align="left">12.378%</td>
+</tr>
+<tr class="even">
+<td align="left">Forcible Rape</td>
+<td align="right">244</td>
+<td align="left">0.943%</td>
+</tr>
+<tr class="odd">
+<td align="left">Homicide</td>
+<td align="right">220</td>
+<td align="left">0.850%</td>
+</tr>
+<tr class="even">
+<td align="left">Larceny</td>
+<td align="right">12999</td>
+<td align="left">50.236%</td>
+</tr>
+<tr class="odd">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">2919</td>
+<td align="left">11.281%</td>
+</tr>
+<tr class="even">
+<td align="left">Robbery</td>
+<td align="right">1987</td>
+<td align="left">7.679%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-7" class="section level3">
+<h3>2018</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWVzMjAxOCAlPiUgXG4gIGNzX2ZpbHRlcl9jb3VudCh2YXIgPSBDb3VudCkgJT4lXG4gIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSBcIlBhcnQgMVwiKSAlPiVcbiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gXCJzdHJpbmdcIikgJT4lXG4gIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JVxuICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCBcbiAgICAgICAgIElMRUFEU0FkZHJlc3MsIElMRUFEU1N0cmVldCwgWENvb3JkLCBZQ29vcmQsIHh5U3RhdHVzKSAtPiBwMV8yMDE4XG5cbnAxXzIwMTggJT4lXG4gIHRhYnlsKHh5U3RhdHVzKSAlPiVcbiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lXG4gIGthYmxlKClcbmBgYCJ9 -->
+<pre class="r"><code>crimes2018 %&gt;% 
+  cs_filter_count(var = Count) %&gt;%
+  cs_filter_crime(var = Crime, crime = &quot;Part 1&quot;) %&gt;%
+  cs_crime_cat(var = Crime, newVar = crimeCat, output = &quot;string&quot;) %&gt;%
+  cs_missing_xy(varx = XCoord, vary = YCoord, newVar = xyStatus) %&gt;%
+  select(Complaint, DateOccur, Crime, crimeCat, District, Description, 
+         ILEADSAddress, ILEADSStreet, XCoord, YCoord, xyStatus) -&gt; p1_2018
+
+p1_2018 %&gt;%
+  tabyl(xyStatus) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">xyStatus</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">FALSE</td>
+<td align="right">23589</td>
+<td align="left">98.059%</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE</td>
+<td align="right">467</td>
+<td align="left">1.941%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxOCAlPiVcbiAgdGFieWwoY3JpbWVDYXQpICU+JVxuICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiVcbiAga2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>p1_2018 %&gt;%
+  tabyl(crimeCat) %&gt;%
+  adorn_pct_formatting(digits = 3) %&gt;%
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">crimeCat</th>
+<th align="right">n</th>
+<th align="left">percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Aggravated Assault</td>
+<td align="right">3598</td>
+<td align="left">14.957%</td>
+</tr>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">214</td>
+<td align="left">0.890%</td>
+</tr>
+<tr class="odd">
+<td align="left">Burgalry</td>
+<td align="right">2999</td>
+<td align="left">12.467%</td>
+</tr>
+<tr class="even">
+<td align="left">Forcible Rape</td>
+<td align="right">250</td>
+<td align="left">1.039%</td>
+</tr>
+<tr class="odd">
+<td align="left">Homicide</td>
+<td align="right">192</td>
+<td align="left">0.798%</td>
+</tr>
+<tr class="even">
+<td align="left">Larceny</td>
+<td align="right">12359</td>
+<td align="left">51.376%</td>
+</tr>
+<tr class="odd">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">2961</td>
+<td align="left">12.309%</td>
+</tr>
+<tr class="even">
+<td align="left">Robbery</td>
+<td align="right">1483</td>
+<td align="left">6.165%</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="clean-enviornment" class="section level2">
+<h2>Clean Enviornment</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm0oY3JpbWVzMjAxNSwgY3JpbWVzMjAxNiwgY3JpbWVzMjAxNywgY3JpbWVzMjAxOClcbmBgYCJ9 -->
+<pre class="r"><code>rm(crimes2015, crimes2016, crimes2017, crimes2018)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="create-violent-crime-data-frames" class="section level2">
+<h2>Create Violent Crime Data Frames</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmNfMjAxNSA8LSBjc19maWx0ZXJfY3JpbWUocDFfMjAxNSwgdmFyID0gQ3JpbWUsIGNyaW1lID0gXCJ2aW9sZW50XCIpXG52Y18yMDE2IDwtIGNzX2ZpbHRlcl9jcmltZShwMV8yMDE2LCB2YXIgPSBDcmltZSwgY3JpbWUgPSBcInZpb2xlbnRcIilcbnZjXzIwMTcgPC0gY3NfZmlsdGVyX2NyaW1lKHAxXzIwMTcsIHZhciA9IENyaW1lLCBjcmltZSA9IFwidmlvbGVudFwiKVxudmNfMjAxOCA8LSBjc19maWx0ZXJfY3JpbWUocDFfMjAxOCwgdmFyID0gQ3JpbWUsIGNyaW1lID0gXCJ2aW9sZW50XCIpXG5gYGAifQ== -->
+<pre class="r"><code>vc_2015 &lt;- cs_filter_crime(p1_2015, var = Crime, crime = &quot;violent&quot;)
+vc_2016 &lt;- cs_filter_crime(p1_2016, var = Crime, crime = &quot;violent&quot;)
+vc_2017 &lt;- cs_filter_crime(p1_2017, var = Crime, crime = &quot;violent&quot;)
+vc_2018 &lt;- cs_filter_crime(p1_2018, var = Crime, crime = &quot;violent&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="project-data" class="section level2">
+<h2>Project Data</h2>
+<p>We project the main set of previously geocoded data, remove excess columns, and transform the data to NAD 1983:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNSAlPiVcbiAgc3RfYXNfc2YoY29vcmRzID0gYyhcIlhDb29yZFwiLCBcIllDb29yZFwiKSwgY3JzID0gMTAyNjk2KSAlPiVcbiAgc2VsZWN0KC14eVN0YXR1cykgJT4lXG4gIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiBwMV8yMDE1XG5cbnAxXzIwMTYgJT4lXG4gIHN0X2FzX3NmKGNvb3JkcyA9IGMoXCJYQ29vcmRcIiwgXCJZQ29vcmRcIiksIGNycyA9IDEwMjY5NikgJT4lXG4gIHNlbGVjdCgteHlTdGF0dXMpICU+JVxuICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgLT4gcDFfMjAxNlxuXG5wMV8yMDE3ICU+JVxuICBzdF9hc19zZihjb29yZHMgPSBjKFwiWENvb3JkXCIsIFwiWUNvb3JkXCIpLCBjcnMgPSAxMDI2OTYpICU+JVxuICBzZWxlY3QoLXh5U3RhdHVzKSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpIC0+IHAxXzIwMTdcblxucDFfMjAxOCAlPiVcbiAgc3RfYXNfc2YoY29vcmRzID0gYyhcIlhDb29yZFwiLCBcIllDb29yZFwiKSwgY3JzID0gMTAyNjk2KSAlPiVcbiAgc2VsZWN0KC14eVN0YXR1cykgJT4lXG4gIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiBwMV8yMDE4XG5cbnZjXzIwMTUgJT4lXG4gIHN0X2FzX3NmKGNvb3JkcyA9IGMoXCJYQ29vcmRcIiwgXCJZQ29vcmRcIiksIGNycyA9IDEwMjY5NikgJT4lXG4gIHNlbGVjdCgteHlTdGF0dXMpICU+JVxuICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgLT4gdmNfMjAxNVxuXG52Y18yMDE2ICU+JVxuICBzdF9hc19zZihjb29yZHMgPSBjKFwiWENvb3JkXCIsIFwiWUNvb3JkXCIpLCBjcnMgPSAxMDI2OTYpICU+JVxuICBzZWxlY3QoLXh5U3RhdHVzKSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpIC0+IHZjXzIwMTZcblxudmNfMjAxNyAlPiVcbiAgc3RfYXNfc2YoY29vcmRzID0gYyhcIlhDb29yZFwiLCBcIllDb29yZFwiKSwgY3JzID0gMTAyNjk2KSAlPiVcbiAgc2VsZWN0KC14eVN0YXR1cykgJT4lXG4gIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiB2Y18yMDE3XG5cbnZjXzIwMTggJT4lXG4gIHN0X2FzX3NmKGNvb3JkcyA9IGMoXCJYQ29vcmRcIiwgXCJZQ29vcmRcIiksIGNycyA9IDEwMjY5NikgJT4lXG4gIHNlbGVjdCgteHlTdGF0dXMpICU+JVxuICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgLT4gdmNfMjAxOFxuYGBgIn0= -->
+<pre class="r"><code>p1_2015 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; p1_2015
+
+p1_2016 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; p1_2016
+
+p1_2017 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; p1_2017
+
+p1_2018 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; p1_2018
+
+vc_2015 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; vc_2015
+
+vc_2016 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; vc_2016
+
+vc_2017 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; vc_2017
+
+vc_2018 %&gt;%
+  st_as_sf(coords = c(&quot;XCoord&quot;, &quot;YCoord&quot;), crs = 102696) %&gt;%
+  select(-xyStatus) %&gt;%
+  st_transform(crs = 4269) -&gt; vc_2018</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="spatial-join-with-neighborhood-data" class="section level2">
+<h2>Spatial Join with Neighborhood Data</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RfcmVhZChoZXJlKFwiZGF0YVwiLCBcInJhd1wiLCBcIm5ob29kXCIsIFwiU1RMX0JPVU5EQVJZX05ob29kcy5zaHBcIiksIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkgJT4lXG4gIHN0X3RyYW5zZm9ybShjcnMgPSAxMDI2OTYpIC0+IG5ob29kc1xuYGBgIn0= -->
+<pre class="r"><code>st_read(here(&quot;data&quot;, &quot;raw&quot;, &quot;nhood&quot;, &quot;STL_BOUNDARY_Nhoods.shp&quot;), stringsAsFactors = FALSE) %&gt;%
+  st_transform(crs = 102696) -&gt; nhoods</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVhZGluZyBsYXllciBgU1RMX0JPVU5EQVJZX05ob29kcycgZnJvbSBkYXRhIHNvdXJjZSBgL1VzZXJzL2NocmlzL0dpdEh1Yi9vcGVuR0lTL3NoYXdDcmltZS9kYXRhL3Jhdy9uaG9vZC9TVExfQk9VTkRBUllfTmhvb2RzLnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcblNpbXBsZSBmZWF0dXJlIGNvbGxlY3Rpb24gd2l0aCA4OCBmZWF0dXJlcyBhbmQgNiBmaWVsZHNcbmdlb21ldHJ5IHR5cGU6ICBNVUxUSVBPTFlHT05cbmRpbWVuc2lvbjogICAgICBYWVxuYmJveDogICAgICAgICAgIHhtaW46IDg3MTUxMi4zIHltaW46IDk4Mjk5NC40IHhtYXg6IDkxMjg1MC41IHltYXg6IDEwNzA5NTdcbmVwc2cgKFNSSUQpOiAgICBOQVxucHJvajRzdHJpbmc6ICAgICtwcm9qPXRtZXJjICtsYXRfMD0zNS44MzMzMzMzMzMzMzMzNCArbG9uXzA9LTkwLjUgK2s9MC45OTk5MzMzMzMzMzMzMzMzICt4XzA9MjUwMDAwICt5XzA9MCArZGF0dW09TkFEODMgK3VuaXRzPXVzLWZ0ICtub19kZWZzXG4ifQ== -->
+<pre><code>Reading layer `STL_BOUNDARY_Nhoods' from data source `/Users/chris/GitHub/openGIS/shawCrime/data/raw/nhood/STL_BOUNDARY_Nhoods.shp' using driver `ESRI Shapefile'
+Simple feature collection with 88 features and 6 fields
+geometry type:  MULTIPOLYGON
+dimension:      XY
+bbox:           xmin: 871512.3 ymin: 982994.4 xmax: 912850.5 ymax: 1070957
+epsg (SRID):    NA
+proj4string:    +proj=tmerc +lat_0=35.83333333333334 +lon_0=-90.5 +k=0.9999333333333333 +x_0=250000 +y_0=0 +datum=NAD83 +units=us-ft +no_defs</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmhvb2RzICU+JVxuICBmaWx0ZXIoTkhEX05BTUUgPT0gXCJTaGF3XCIpICU+JVxuICBzZWxlY3QoTkhEX05VTSwgTkhEX05BTUUpIC0+IHNoYXdcbmBgYCJ9 -->
+<pre class="r"><code>nhoods %&gt;%
+  filter(NHD_NAME == &quot;Shaw&quot;) %&gt;%
+  select(NHD_NUM, NHD_NAME) -&gt; shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxNV9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>p1_2015 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; p1_2015_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNiAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxNl9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>p1_2016 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; p1_2016_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxNyAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxN19zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>p1_2017 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; p1_2017_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDFfMjAxOCAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxOF9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>p1_2018 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; p1_2018_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmNfMjAxNSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gdmNfMjAxNV9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>vc_2015 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; vc_2015_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmNfMjAxNiAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gdmNfMjAxNl9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>vc_2016 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; vc_2016_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmNfMjAxNyAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gdmNfMjAxN19zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>vc_2017 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; vc_2017_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmNfMjAxOCAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lXG4gIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiVcbiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JVxuICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gdmNfMjAxOF9zaGF3XG5gYGAifQ== -->
+<pre class="r"><code>vc_2018 %&gt;%
+  st_transform(crs = 102696) %&gt;%
+  st_intersection(., shaw) %&gt;%
+  st_transform(crs = 4269) %&gt;%
+  select(-NHD_NAME, -NHD_NUM) -&gt; vc_2018_shaw</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYXR0cmlidXRlIHZhcmlhYmxlcyBhcmUgYXNzdW1lZCB0byBiZSBzcGF0aWFsbHkgY29uc3RhbnQgdGhyb3VnaG91dCBhbGwgZ2VvbWV0cmllc1xuIn0= -->
+<pre><code>attribute variables are assumed to be spatially constant throughout all geometries</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="write-shapefiles" class="section level2">
+<h2>Write Shapefiles</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUocDFfMjAxNV9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiUGFydCAxXCIsIFwiMjAxNVwiLCBcIlNIQVdfUGFydDFfMjAxNS5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(p1_2015_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Part 1&quot;, &quot;2015&quot;, &quot;SHAW_Part1_2015.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vUGFydCAxLzIwMTUvU0hBV19QYXJ0MV8yMDE1LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfUGFydDFfMjAxNScgdG8gZGF0YSBzb3VyY2UgYC9Vc2Vycy9jaHJpcy9HaXRIdWIvb3BlbkdJUy9zaGF3Q3JpbWUvZGF0YS9jbGVhbi9QYXJ0IDEvMjAxNS9TSEFXX1BhcnQxXzIwMTUuc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuZmVhdHVyZXM6ICAgICAgIDI5NlxuZmllbGRzOiAgICAgICAgIDhcbmdlb21ldHJ5IHR5cGU6ICBQb2ludFxuIn0= -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2015/SHAW_Part1_2015.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Part1_2015' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2015/SHAW_Part1_2015.shp' using driver `ESRI Shapefile'
+features:       296
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUocDFfMjAxNl9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiUGFydCAxXCIsIFwiMjAxNlwiLCBcIlNIQVdfUGFydDFfMjAxNi5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(p1_2016_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Part 1&quot;, &quot;2016&quot;, &quot;SHAW_Part1_2016.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vUGFydCAxLzIwMTYvU0hBV19QYXJ0MV8yMDE2LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfUGFydDFfMjAxNicgdG8gZGF0YSBzb3VyY2UgYC9Vc2Vycy9jaHJpcy9HaXRIdWIvb3BlbkdJUy9zaGF3Q3JpbWUvZGF0YS9jbGVhbi9QYXJ0IDEvMjAxNi9TSEFXX1BhcnQxXzIwMTYuc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuZmVhdHVyZXM6ICAgICAgIDMwOFxuZmllbGRzOiAgICAgICAgIDhcbmdlb21ldHJ5IHR5cGU6ICBQb2ludFxuIn0= -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2016/SHAW_Part1_2016.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Part1_2016' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2016/SHAW_Part1_2016.shp' using driver `ESRI Shapefile'
+features:       308
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUocDFfMjAxN19zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiUGFydCAxXCIsIFwiMjAxN1wiLCBcIlNIQVdfUGFydDFfMjAxNy5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(p1_2017_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Part 1&quot;, &quot;2017&quot;, &quot;SHAW_Part1_2017.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vUGFydCAxLzIwMTcvU0hBV19QYXJ0MV8yMDE3LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfUGFydDFfMjAxNycgdG8gZGF0YSBzb3VyY2UgYC9Vc2Vycy9jaHJpcy9HaXRIdWIvb3BlbkdJUy9zaGF3Q3JpbWUvZGF0YS9jbGVhbi9QYXJ0IDEvMjAxNy9TSEFXX1BhcnQxXzIwMTcuc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuZmVhdHVyZXM6ICAgICAgIDMyOVxuZmllbGRzOiAgICAgICAgIDhcbmdlb21ldHJ5IHR5cGU6ICBQb2ludFxuIn0= -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2017/SHAW_Part1_2017.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Part1_2017' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2017/SHAW_Part1_2017.shp' using driver `ESRI Shapefile'
+features:       329
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUocDFfMjAxOF9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiUGFydCAxXCIsIFwiMjAxOFwiLCBcIlNIQVdfUGFydDFfMjAxOC5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(p1_2018_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Part 1&quot;, &quot;2018&quot;, &quot;SHAW_Part1_2018.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vUGFydCAxLzIwMTgvU0hBV19QYXJ0MV8yMDE4LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfUGFydDFfMjAxOCcgdG8gZGF0YSBzb3VyY2UgYC9Vc2Vycy9jaHJpcy9HaXRIdWIvb3BlbkdJUy9zaGF3Q3JpbWUvZGF0YS9jbGVhbi9QYXJ0IDEvMjAxOC9TSEFXX1BhcnQxXzIwMTguc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuZmVhdHVyZXM6ICAgICAgIDIwMVxuZmllbGRzOiAgICAgICAgIDhcbmdlb21ldHJ5IHR5cGU6ICBQb2ludFxuIn0= -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2018/SHAW_Part1_2018.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Part1_2018' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Part 1/2018/SHAW_Part1_2018.shp' using driver `ESRI Shapefile'
+features:       201
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodmNfMjAxNV9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiVmlvbGVudFwiLCBcIjIwMTVcIiwgXCJTSEFXX1Zpb2xlbnRfMjAxNS5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(vc_2015_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Violent&quot;, &quot;2015&quot;, &quot;SHAW_Violent_2015.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vVmlvbGVudC8yMDE1L1NIQVdfVmlvbGVudF8yMDE1LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfVmlvbGVudF8yMDE1JyB0byBkYXRhIHNvdXJjZSBgL1VzZXJzL2NocmlzL0dpdEh1Yi9vcGVuR0lTL3NoYXdDcmltZS9kYXRhL2NsZWFuL1Zpb2xlbnQvMjAxNS9TSEFXX1Zpb2xlbnRfMjAxNS5zaHAnIHVzaW5nIGRyaXZlciBgRVNSSSBTaGFwZWZpbGUnXG5mZWF0dXJlczogICAgICAgMjBcbmZpZWxkczogICAgICAgICA4XG5nZW9tZXRyeSB0eXBlOiAgUG9pbnRcbiJ9 -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2015/SHAW_Violent_2015.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Violent_2015' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2015/SHAW_Violent_2015.shp' using driver `ESRI Shapefile'
+features:       20
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodmNfMjAxNl9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiVmlvbGVudFwiLCBcIjIwMTZcIiwgXCJTSEFXX1Zpb2xlbnRfMjAxNi5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(vc_2016_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Violent&quot;, &quot;2016&quot;, &quot;SHAW_Violent_2016.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vVmlvbGVudC8yMDE2L1NIQVdfVmlvbGVudF8yMDE2LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfVmlvbGVudF8yMDE2JyB0byBkYXRhIHNvdXJjZSBgL1VzZXJzL2NocmlzL0dpdEh1Yi9vcGVuR0lTL3NoYXdDcmltZS9kYXRhL2NsZWFuL1Zpb2xlbnQvMjAxNi9TSEFXX1Zpb2xlbnRfMjAxNi5zaHAnIHVzaW5nIGRyaXZlciBgRVNSSSBTaGFwZWZpbGUnXG5mZWF0dXJlczogICAgICAgNDFcbmZpZWxkczogICAgICAgICA4XG5nZW9tZXRyeSB0eXBlOiAgUG9pbnRcbiJ9 -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2016/SHAW_Violent_2016.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Violent_2016' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2016/SHAW_Violent_2016.shp' using driver `ESRI Shapefile'
+features:       41
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodmNfMjAxN19zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiVmlvbGVudFwiLCBcIjIwMTdcIiwgXCJTSEFXX1Zpb2xlbnRfMjAxNy5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(vc_2017_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Violent&quot;, &quot;2017&quot;, &quot;SHAW_Violent_2017.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vVmlvbGVudC8yMDE3L1NIQVdfVmlvbGVudF8yMDE3LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfVmlvbGVudF8yMDE3JyB0byBkYXRhIHNvdXJjZSBgL1VzZXJzL2NocmlzL0dpdEh1Yi9vcGVuR0lTL3NoYXdDcmltZS9kYXRhL2NsZWFuL1Zpb2xlbnQvMjAxNy9TSEFXX1Zpb2xlbnRfMjAxNy5zaHAnIHVzaW5nIGRyaXZlciBgRVNSSSBTaGFwZWZpbGUnXG5mZWF0dXJlczogICAgICAgMzdcbmZpZWxkczogICAgICAgICA4XG5nZW9tZXRyeSB0eXBlOiAgUG9pbnRcbiJ9 -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2017/SHAW_Violent_2017.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Violent_2017' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2017/SHAW_Violent_2017.shp' using driver `ESRI Shapefile'
+features:       37
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodmNfMjAxOF9zaGF3LCBoZXJlKFwiZGF0YVwiLCBcImNsZWFuXCIsIFwiVmlvbGVudFwiLCBcIjIwMThcIiwgXCJTSEFXX1Zpb2xlbnRfMjAxOC5zaHBcIiksIGRlbGV0ZV9kc24gPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>st_write(vc_2018_shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Violent&quot;, &quot;2018&quot;, &quot;SHAW_Violent_2018.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
+<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vVmlvbGVudC8yMDE4L1NIQVdfVmlvbGVudF8yMDE4LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfVmlvbGVudF8yMDE4JyB0byBkYXRhIHNvdXJjZSBgL1VzZXJzL2NocmlzL0dpdEh1Yi9vcGVuR0lTL3NoYXdDcmltZS9kYXRhL2NsZWFuL1Zpb2xlbnQvMjAxOC9TSEFXX1Zpb2xlbnRfMjAxOC5zaHAnIHVzaW5nIGRyaXZlciBgRVNSSSBTaGFwZWZpbGUnXG5mZWF0dXJlczogICAgICAgMjNcbmZpZWxkczogICAgICAgICA4XG5nZW9tZXRyeSB0eXBlOiAgUG9pbnRcbiJ9 -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2018/SHAW_Violent_2018.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Violent_2018' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Violent/2018/SHAW_Violent_2018.shp' using driver `ESRI Shapefile'
+features:       23
+fields:         8
+geometry type:  Point</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoc2hhdywgaGVyZShcImRhdGFcIiwgXCJjbGVhblwiLCBcIlNoYXdcIiwgXCJTSEFXX0JvdW5kYXJ5LnNocFwiKSwgZGVsZXRlX2RzbiA9IFRSVUUpXG5gYGAifQ== -->
+<pre class="r"><code>st_write(shaw, here(&quot;data&quot;, &quot;clean&quot;, &quot;Shaw&quot;, &quot;SHAW_Boundary.shp&quot;), delete_dsn = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vU2hhdy9TSEFXX0JvdW5kYXJ5LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbldyaXRpbmcgbGF5ZXIgYFNIQVdfQm91bmRhcnknIHRvIGRhdGEgc291cmNlIGAvVXNlcnMvY2hyaXMvR2l0SHViL29wZW5HSVMvc2hhd0NyaW1lL2RhdGEvY2xlYW4vU2hhdy9TSEFXX0JvdW5kYXJ5LnNocCcgdXNpbmcgZHJpdmVyIGBFU1JJIFNoYXBlZmlsZSdcbmZlYXR1cmVzOiAgICAgICAxXG5maWVsZHM6ICAgICAgICAgMlxuZ2VvbWV0cnkgdHlwZTogIE11bHRpIFBvbHlnb25cbiJ9 -->
+<pre><code>Deleting source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Shaw/SHAW_Boundary.shp' using driver `ESRI Shapefile'
+Writing layer `SHAW_Boundary' to data source `/Users/chris/GitHub/openGIS/shawCrime/data/clean/Shaw/SHAW_Boundary.shp' using driver `ESRI Shapefile'
+features:       1
+fields:         2
+geometry type:  Multi Polygon</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="crime-rates" class="section level2">
+<h2>Crime Rates</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueWVhcnMgPC0gYygyMDE1LCAyMDE2LCAyMDE3KVxuXG55ZWFycyAlPiVcbiAgdW5saXN0KHllYXJzKSAlPiVcbiAgcHVycnI6OjptYXBfZGYofiBnZXRfYWNzKHllYXIgPSAueCwgZ2VvZ3JhcGh5ID0gXCJjb3VudHlcIiwgdmFyaWFibGUgPSBcIkIwMTAwM18wMDFcIiwgc3RhdGUgPSAyOSwgY291bnR5ID0gNTEwKSkgLT4gY2l0eVBvcFxuYGBgIn0= -->
+<pre class="r"><code>years &lt;- c(2015, 2016, 2017)
+
+years %&gt;%
+  unlist(years) %&gt;%
+  purrr:::map_df(~ get_acs(year = .x, geography = &quot;county&quot;, variable = &quot;B01003_001&quot;, state = 29, county = 510)) -&gt; cityPop</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTEtMjAxNSA1LXllYXIgQUNTXG5HZXR0aW5nIGRhdGEgZnJvbSB0aGUgMjAxMi0yMDE2IDUteWVhciBBQ1NcbkdldHRpbmcgZGF0YSBmcm9tIHRoZSAyMDEzLTIwMTcgNS15ZWFyIEFDU1xuIn0= -->
+<pre><code>Getting data from the 2011-2015 5-year ACS
+Getting data from the 2012-2016 5-year ACS
+Getting data from the 2013-2017 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhY3QxNSA8LSBnZXRfYWNzKHllYXIgPSAyMDE1LCBnZW9ncmFwaHkgPSBcInRyYWN0XCIsIHZhcmlhYmxlID0gXCJCMDEwMDNfMDAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgPSAyOSwgY291bnR5ID0gNTEwKVxuYGBgIn0= -->
+<pre class="r"><code>tract15 &lt;- get_acs(year = 2015, geography = &quot;tract&quot;, variable = &quot;B01003_001&quot;, 
+                        state = 29, county = 510)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTEtMjAxNSA1LXllYXIgQUNTXG4ifQ== -->
+<pre><code>Getting data from the 2011-2015 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhY3QxNiA8LSBnZXRfYWNzKHllYXIgPSAyMDE2LCBnZW9ncmFwaHkgPSBcInRyYWN0XCIsIHZhcmlhYmxlID0gXCJCMDEwMDNfMDAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgPSAyOSwgY291bnR5ID0gNTEwKVxuYGBgIn0= -->
+<pre class="r"><code>tract16 &lt;- get_acs(year = 2016, geography = &quot;tract&quot;, variable = &quot;B01003_001&quot;, 
+                        state = 29, county = 510)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTItMjAxNiA1LXllYXIgQUNTXG4ifQ== -->
+<pre><code>Getting data from the 2012-2016 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhY3QxNyA8LSBnZXRfYWNzKHllYXIgPSAyMDE3LCBnZW9ncmFwaHkgPSBcInRyYWN0XCIsIHZhcmlhYmxlID0gXCJCMDEwMDNfMDAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgPSAyOSwgY291bnR5ID0gNTEwKVxuYGBgIn0= -->
+<pre class="r"><code>tract17 &lt;- get_acs(year = 2017, geography = &quot;tract&quot;, variable = &quot;B01003_001&quot;, 
+                        state = 29, county = 510)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTMtMjAxNyA1LXllYXIgQUNTXG4ifQ== -->
+<pre><code>Getting data from the 2013-2017 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhY3RzIDwtIHRpZ3Jpczo6dHJhY3RzKHN0YXRlID0gMjksIGNvdW50ID0gNTEwLCBjbGFzcyA9IFwic2ZcIilcbnRyYWN0cyA8LSBzZWxlY3QodHJhY3RzLCBHRU9JRClcblxudHJhY3QxNSA8LSBsZWZ0X2pvaW4odHJhY3RzLCB0cmFjdDE1LCBieSA9IFwiR0VPSURcIilcbnRyYWN0MTUgPC0gc3RfdHJhbnNmb3JtKHRyYWN0MTUsIGNycyA9IDEwMjY5NilcblxudHJhY3QxNiA8LSBsZWZ0X2pvaW4odHJhY3RzLCB0cmFjdDE2LCBieSA9IFwiR0VPSURcIilcbnRyYWN0MTYgPC0gc3RfdHJhbnNmb3JtKHRyYWN0MTYsIGNycyA9IDEwMjY5NilcblxudHJhY3QxNyA8LSBsZWZ0X2pvaW4odHJhY3RzLCB0cmFjdDE3LCBieSA9IFwiR0VPSURcIilcbnRyYWN0MTcgPC0gc3RfdHJhbnNmb3JtKHRyYWN0MTcsIGNycyA9IDEwMjY5Nilcblxucm0odHJhY3RzKVxuYGBgIn0= -->
+<pre class="r"><code>tracts &lt;- tigris::tracts(state = 29, count = 510, class = &quot;sf&quot;)
+tracts &lt;- select(tracts, GEOID)
+
+tract15 &lt;- left_join(tracts, tract15, by = &quot;GEOID&quot;)
+tract15 &lt;- st_transform(tract15, crs = 102696)
+
+tract16 &lt;- left_join(tracts, tract16, by = &quot;GEOID&quot;)
+tract16 &lt;- st_transform(tract16, crs = 102696)
+
+tract17 &lt;- left_join(tracts, tract17, by = &quot;GEOID&quot;)
+tract17 &lt;- st_transform(tract17, crs = 102696)
+
+rm(tracts)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhdzE1IDwtIGFyZWFsOjphd19pbnRlcnBvbGF0ZShzaGF3LCB0aWQgPSBOSERfTlVNLCBzb3VyY2UgPSB0cmFjdDE1LCBzaWQgPSBHRU9JRCwgXG4gICAgICAgICAgICAgICAgICAgICAgd2VpZ2h0ID0gXCJ0b3RhbFwiLCBvdXRwdXQgPSBcInRpYmJsZVwiLCBleHRlbnNpdmUgPSBcImVzdGltYXRlXCIpXG5cbnNoYXcxNiA8LSBhcmVhbDo6YXdfaW50ZXJwb2xhdGUoc2hhdywgdGlkID0gTkhEX05VTSwgc291cmNlID0gdHJhY3QxNiwgc2lkID0gR0VPSUQsIFxuICAgICAgICAgICAgICAgICAgICAgIHdlaWdodCA9IFwidG90YWxcIiwgb3V0cHV0ID0gXCJ0aWJibGVcIiwgZXh0ZW5zaXZlID0gXCJlc3RpbWF0ZVwiKVxuXG5zaGF3MTcgPC0gYXJlYWw6OmF3X2ludGVycG9sYXRlKHNoYXcsIHRpZCA9IE5IRF9OVU0sIHNvdXJjZSA9IHRyYWN0MTcsIHNpZCA9IEdFT0lELCBcbiAgICAgICAgICAgICAgICAgICAgICB3ZWlnaHQgPSBcInRvdGFsXCIsIG91dHB1dCA9IFwidGliYmxlXCIsIGV4dGVuc2l2ZSA9IFwiZXN0aW1hdGVcIilcbmBgYCJ9 -->
+<pre class="r"><code>shaw15 &lt;- areal::aw_interpolate(shaw, tid = NHD_NUM, source = tract15, sid = GEOID, 
+                      weight = &quot;total&quot;, output = &quot;tibble&quot;, extensive = &quot;estimate&quot;)
+
+shaw16 &lt;- areal::aw_interpolate(shaw, tid = NHD_NUM, source = tract16, sid = GEOID, 
+                      weight = &quot;total&quot;, output = &quot;tibble&quot;, extensive = &quot;estimate&quot;)
+
+shaw17 &lt;- areal::aw_interpolate(shaw, tid = NHD_NUM, source = tract17, sid = GEOID, 
+                      weight = &quot;total&quot;, output = &quot;tibble&quot;, extensive = &quot;estimate&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXVyZGVyXzIwMTUgPC0gZmlsdGVyKHZjXzIwMTUsIGNyaW1lQ2F0ID09IFwiSG9taWNpZGVcIilcbm11cmRlcl8yMDE2IDwtIGZpbHRlcih2Y18yMDE2LCBjcmltZUNhdCA9PSBcIkhvbWljaWRlXCIpXG5tdXJkZXJfMjAxNyA8LSBmaWx0ZXIodmNfMjAxNywgY3JpbWVDYXQgPT0gXCJIb21pY2lkZVwiKVxubXVyZGVyXzIwMTggPC0gZmlsdGVyKHZjXzIwMTgsIGNyaW1lQ2F0ID09IFwiSG9taWNpZGVcIilcblxubXVyZGVyXzIwMTVfc2hhdyA8LSBmaWx0ZXIodmNfMjAxNV9zaGF3LCBjcmltZUNhdCA9PSBcIkhvbWljaWRlXCIpXG5tdXJkZXJfMjAxNl9zaGF3IDwtIGZpbHRlcih2Y18yMDE2X3NoYXcsIGNyaW1lQ2F0ID09IFwiSG9taWNpZGVcIilcbm11cmRlcl8yMDE3X3NoYXcgPC0gZmlsdGVyKHZjXzIwMTdfc2hhdywgY3JpbWVDYXQgPT0gXCJIb21pY2lkZVwiKVxubXVyZGVyXzIwMThfc2hhdyA8LSBmaWx0ZXIodmNfMjAxOF9zaGF3LCBjcmltZUNhdCA9PSBcIkhvbWljaWRlXCIpXG5gYGAifQ== -->
+<pre class="r"><code>murder_2015 &lt;- filter(vc_2015, crimeCat == &quot;Homicide&quot;)
+murder_2016 &lt;- filter(vc_2016, crimeCat == &quot;Homicide&quot;)
+murder_2017 &lt;- filter(vc_2017, crimeCat == &quot;Homicide&quot;)
+murder_2018 &lt;- filter(vc_2018, crimeCat == &quot;Homicide&quot;)
+
+murder_2015_shaw &lt;- filter(vc_2015_shaw, crimeCat == &quot;Homicide&quot;)
+murder_2016_shaw &lt;- filter(vc_2016_shaw, crimeCat == &quot;Homicide&quot;)
+murder_2017_shaw &lt;- filter(vc_2017_shaw, crimeCat == &quot;Homicide&quot;)
+murder_2018_shaw &lt;- filter(vc_2018_shaw, crimeCat == &quot;Homicide&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2l0eUNyaW1lIDwtIGRhdGEuZnJhbWUoXG4gIHllYXIgPSBjKDIwMTUsIDIwMTYsIDIwMTcsIDIwMTgpLFxuICBwb3AgPSBjKGNpdHlQb3AkZXN0aW1hdGVbMV0sIGNpdHlQb3AkZXN0aW1hdGVbMl0sIGNpdHlQb3AkZXN0aW1hdGVbM10sIGNpdHlQb3AkZXN0aW1hdGVbM10pLFxuICBob21pY2lkZUNvdW50ID0gYyhucm93KG11cmRlcl8yMDE1KSwgbnJvdyhtdXJkZXJfMjAxNiksIG5yb3cobXVyZGVyXzIwMTcpLCBucm93KG11cmRlcl8yMDE4KSksXG4gIHZjQ291bnQgPSBjKG5yb3codmNfMjAxNSksIG5yb3codmNfMjAxNiksIG5yb3codmNfMjAxNyksIG5yb3codmNfMjAxOCkpLFxuICBwMUNvdW50ID0gYyhucm93KHAxXzIwMTUpLCBucm93KHAxXzIwMTYpLCBucm93KHAxXzIwMTcpLCBucm93KHAxXzIwMTgpKSxcbiAgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFXG4pXG5cbmNpdHlDcmltZSAlPiVcbiAgbXV0YXRlKGNpdHlfaG9taWNpZGVSYXRlID0gKGhvbWljaWRlQ291bnQvcG9wKSoxMDAwMDApICU+JVxuICBtdXRhdGUoY2l0eV92Y1JhdGUgPSAodmNDb3VudC9wb3ApKjEwMDAwMCkgJT4lXG4gIG11dGF0ZShjaXR5X3AxUmF0ZSA9IChwMUNvdW50L3BvcCkqMTAwMDAwKSAtPiBjaXR5Q3JpbWVcblxuc2hhd0NyaW1lIDwtIGRhdGEuZnJhbWUoXG4gIHllYXIgPSBjKDIwMTUsIDIwMTYsIDIwMTcsIDIwMTgpLFxuICBwb3AgPSBjKHNoYXcxNSRlc3RpbWF0ZSwgc2hhdzE2JGVzdGltYXRlLCBzaGF3MTckZXN0aW1hdGUsIHNoYXcxNyRlc3RpbWF0ZSksXG4gIGhvbWljaWRlQ291bnQgPSBjKG5yb3cobXVyZGVyXzIwMTVfc2hhdyksIG5yb3cobXVyZGVyXzIwMTZfc2hhdyksIG5yb3cobXVyZGVyXzIwMTdfc2hhdyksIG5yb3cobXVyZGVyXzIwMThfc2hhdykpLFxuICB2Y0NvdW50ID0gYyhucm93KHZjXzIwMTVfc2hhdyksIG5yb3codmNfMjAxNl9zaGF3KSwgbnJvdyh2Y18yMDE3X3NoYXcpLCBucm93KHZjXzIwMThfc2hhdykpLFxuICBwMUNvdW50ID0gYyhucm93KHAxXzIwMTVfc2hhdyksIG5yb3cocDFfMjAxNl9zaGF3KSwgbnJvdyhwMV8yMDE3X3NoYXcpLCBucm93KHAxXzIwMThfc2hhdykpLFxuICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0Vcbilcblxuc2hhd0NyaW1lICU+JVxuICBtdXRhdGUoaG9taWNpZGVSYXRlID0gKGhvbWljaWRlQ291bnQvcG9wKSoxMDAwMDApICU+JVxuICBtdXRhdGUodmNSYXRlID0gKHZjQ291bnQvcG9wKSoxMDAwMDApICU+JVxuICBtdXRhdGUocDFSYXRlID0gKHAxQ291bnQvcG9wKSoxMDAwMDApIC0+IHNoYXdDcmltZVxuXG5jaXR5Q3JpbWUgJT4lXG4gIHNlbGVjdCh5ZWFyLCBjaXR5X2hvbWljaWRlUmF0ZSwgY2l0eV92Y1JhdGUsIGNpdHlfcDFSYXRlKSAlPiVcbiAgbGVmdF9qb2luKHNoYXdDcmltZSwgLiwgYnkgPSBcInllYXJcIikgJT4lXG4gIG11dGF0ZShob21pY2lkZVJhdGlvID0gaG9taWNpZGVSYXRlL2NpdHlfaG9taWNpZGVSYXRlKSAlPiVcbiAgbXV0YXRlKHZjUmF0aW8gPSB2Y1JhdGUvY2l0eV92Y1JhdGUpICU+JVxuICBtdXRhdGUocDFSYXRpbyA9IHAxUmF0ZS9jaXR5X3AxUmF0ZSkgJT4lXG4gIHNlbGVjdCh5ZWFyLCBwb3AsIFxuICAgICAgICAgaG9taWNpZGVDb3VudCwgaG9taWNpZGVSYXRlLCBjaXR5X2hvbWljaWRlUmF0ZSwgaG9taWNpZGVSYXRpbyxcbiAgICAgICAgIHZjQ291bnQsIHZjUmF0ZSwgY2l0eV92Y1JhdGUsIHZjUmF0aW8sXG4gICAgICAgICBwMUNvdW50LCBwMVJhdGUsIGNpdHlfcDFSYXRlLCBwMVJhdGlvKSAtPiBzaGF3Q3JpbWVcblxud3JpdGVfY3N2KHNoYXdDcmltZSwgcGF0aCA9IGhlcmUoXCJkYXRhXCIsIFwiY2xlYW5cIiwgXCJzaGF3Q3JpbWUuY3N2XCIpKVxuYGBgIn0= -->
+<pre class="r"><code>cityCrime &lt;- data.frame(
+  year = c(2015, 2016, 2017, 2018),
+  pop = c(cityPop$estimate[1], cityPop$estimate[2], cityPop$estimate[3], cityPop$estimate[3]),
+  homicideCount = c(nrow(murder_2015), nrow(murder_2016), nrow(murder_2017), nrow(murder_2018)),
+  vcCount = c(nrow(vc_2015), nrow(vc_2016), nrow(vc_2017), nrow(vc_2018)),
+  p1Count = c(nrow(p1_2015), nrow(p1_2016), nrow(p1_2017), nrow(p1_2018)),
+  stringsAsFactors = FALSE
+)
+
+cityCrime %&gt;%
+  mutate(city_homicideRate = (homicideCount/pop)*100000) %&gt;%
+  mutate(city_vcRate = (vcCount/pop)*100000) %&gt;%
+  mutate(city_p1Rate = (p1Count/pop)*100000) -&gt; cityCrime
+
+shawCrime &lt;- data.frame(
+  year = c(2015, 2016, 2017, 2018),
+  pop = c(shaw15$estimate, shaw16$estimate, shaw17$estimate, shaw17$estimate),
+  homicideCount = c(nrow(murder_2015_shaw), nrow(murder_2016_shaw), nrow(murder_2017_shaw), nrow(murder_2018_shaw)),
+  vcCount = c(nrow(vc_2015_shaw), nrow(vc_2016_shaw), nrow(vc_2017_shaw), nrow(vc_2018_shaw)),
+  p1Count = c(nrow(p1_2015_shaw), nrow(p1_2016_shaw), nrow(p1_2017_shaw), nrow(p1_2018_shaw)),
+  stringsAsFactors = FALSE
+)
+
+shawCrime %&gt;%
+  mutate(homicideRate = (homicideCount/pop)*100000) %&gt;%
+  mutate(vcRate = (vcCount/pop)*100000) %&gt;%
+  mutate(p1Rate = (p1Count/pop)*100000) -&gt; shawCrime
+
+cityCrime %&gt;%
+  select(year, city_homicideRate, city_vcRate, city_p1Rate) %&gt;%
+  left_join(shawCrime, ., by = &quot;year&quot;) %&gt;%
+  mutate(homicideRatio = homicideRate/city_homicideRate) %&gt;%
+  mutate(vcRatio = vcRate/city_vcRate) %&gt;%
+  mutate(p1Ratio = p1Rate/city_p1Rate) %&gt;%
+  select(year, pop, 
+         homicideCount, homicideRate, city_homicideRate, homicideRatio,
+         vcCount, vcRate, city_vcRate, vcRatio,
+         p1Count, p1Rate, city_p1Rate, p1Ratio) -&gt; shawCrime
+
+write_csv(shawCrime, path = here(&quot;data&quot;, &quot;clean&quot;, &quot;shawCrime.csv&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW5pdGlhbCAyMDE1LTIwMTggRGF0YSBDcmVhdGlvbiIKYXV0aG9yOiAiQ2hyaXN0b3BoZXIgUHJlbmVyLCBQaC5ELiIKZGF0ZTogJyhgciBmb3JtYXQoU3lzLnRpbWUoKSwgIiVCICVkLCAlWSIpYCknCm91dHB1dDogCiAgZ2l0aHViX2RvY3VtZW50OiBkZWZhdWx0CiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdCAKLS0tCgojIyBJbnRyb2R1Y3Rpb24KVGhpcyBub3RlYm9vayBjb250YWlucyB0aGUgaW5pdGlhbCBjb2RlIGZvciBjbGVhbmluZyB0aGUgMjAxNS0yMDE4IGNyaW1lIGZpbGUgZGF0YSB0byBjcmVhdGUgU2hhdy1zcGVjaWZpYyBzaGFwZWZpbGVzLgoKIyMgRGVwZW5kZW5jaWVzClRoaXMgbm90ZWJvb2sgcmVxdWlyZXM6CgpgYGB7ciBsb2FkLXBhY2thZ2VzfQojIHByaW1hcnkgZGF0YSB0b29scwpsaWJyYXJ5KGNvbXBzdGF0cikgICAgICMgd29yayB3aXRoIHN0bG1wZCBjcmltZSBkYXRhCgojIHRpZHl2ZXJzZSBwYWNrYWdlcwpsaWJyYXJ5KGRwbHlyKSAgICAgICAgICMgZGF0YSB3cmFuZ2xpbmcKbGlicmFyeShyZWFkcikgICAgICAgICAjIHdvcmtpbmcgd2l0aCBjc3YgZGF0YQoKIyBzcGF0aWFsIHBhY2thZ2VzCmxpYnJhcnkoc2YpICAgICAgICAgICAgIyB3b3JraW5nIHdpdGggc3BhdGlhbCBkYXRhCmxpYnJhcnkodGlncmlzKSAgICAgICAgIyB0aWdlci9saW5lIGFwaSBhY2Nlc3MKCiMgb3RoZXIgcGFja2FnZXMKbGlicmFyeShqYW5pdG9yKSAgICAgICAjIGZyZXF1ZW5jeSB0YWJsZXMKbGlicmFyeShoZXJlKSAgICAgICAgICAjIGZpbGUgcGF0aCBtYW5hZ2VtZW50CmxpYnJhcnkoa25pdHIpICAgICAgICAgIyBvdXRwdXQKbGlicmFyeSh0ZXN0dGhhdCkgICAgICAjIHVuaXQgdGVzdGluZwpgYGAKCiMjIENyZWF0ZSBEYXRhCkRhdGEgZG93bmxvYWRlZCBmcm9tIHRoZSBTVExNUEQgd2Vic2l0ZSBjb21lIGluIGAuY3N2YCBmb3JtYXQgYnV0IHdpdGggdGhlIHdyb25nIGZpbGUgZXh0ZW5zaW9uLiBUaGUgZm9sbG93aW5nIGJhc2ggc2NyaXB0IGNvcGllcyB0aGVtIHRvIGEgbmV3IHN1YmRpcmVjdG9yeSBhbmQgZml4ZXMgdGhlIGZpbGUgZXh0ZW5zaW9uIGlzc3VlOgoKYGBge2Jhc2h9CiMgY2hhbmdlIHdvcmtpbmcgZGlyZWN0b3J5CmNkIC4uCiMgZXhlY3V0ZSBjbGVhbmluZyBzY3JpcHQKYmFzaCBzb3VyY2UvcmVmb3JtYXRIVE1MLnNoCmBgYAoKIyMgTG9hZCBEYXRhCldpdGggb3VyIGRhdGEgcmVuYW1lZCwgd2UgYnVpbGQgYSB5ZWFyIGxpc3Qgb2JqZWN0cyBmb3IgMjAxNiwgMjAxNywgYW5kIDIwMTggY3JpbWVzOgoKYGBge3IgbG9hZC1kYXRhfQpkYXRhMjAxNSA8LSBjc19sb2FkX3llYXIoaGVyZSgiZGF0YSIsICJpbnRlcm1lZGlhdGUiLCAiMjAxNSIpKQpkYXRhMjAxNiA8LSBjc19sb2FkX3llYXIoaGVyZSgiZGF0YSIsICJpbnRlcm1lZGlhdGUiLCAiMjAxNiIpKQpkYXRhMjAxNyA8LSBjc19sb2FkX3llYXIoaGVyZSgiZGF0YSIsICJpbnRlcm1lZGlhdGUiLCAiMjAxNyIpKQpkYXRhMjAxOCA8LSBjc19sb2FkX3llYXIoaGVyZSgiZGF0YSIsICJpbnRlcm1lZGlhdGUiLCAiMjAxOCIpKQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW5pdGlhbCAyMDE1LTIwMTggRGF0YSBDcmVhdGlvbiIKYXV0aG9yOiAiQ2hyaXN0b3BoZXIgUHJlbmVyLCBQaC5ELiIKZGF0ZTogJyhgciBmb3JtYXQoU3lzLnRpbWUoKSwgIiVCICVkLCAlWSIpYCknCm91dHB1dDogCiAgZ2l0aHViX2RvY3VtZW50OiBkZWZhdWx0CiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdCAKLS0tCgojIyBJbnRyb2R1Y3Rpb24KVGhpcyBub3RlYm9vayBjb250YWlucyB0aGUgaW5pdGlhbCBjb2RlIGZvciBjbGVhbmluZyB0aGUgMjAxNS0yMDE4IGNyaW1lIGZpbGUgZGF0YSB0byBjcmVhdGUgU2hhdy1zcGVjaWZpYyBzaGFwZWZpbGVzLgoKIyMgRGVwZW5kZW5jaWVzClRoaXMgbm90ZWJvb2sgcmVxdWlyZXM6CgpgYGB7ciBsb2FkLXBhY2thZ2VzfQojIHByaW1hcnkgZGF0YSB0b29scwpsaWJyYXJ5KGNvbXBzdGF0cikgICAgICMgd29yayB3aXRoIHN0bG1wZCBjcmltZSBkYXRhCgojIHRpZHl2ZXJzZSBwYWNrYWdlcwpsaWJyYXJ5KGRwbHlyKSAgICAgICAgICMgZGF0YSB3cmFuZ2xpbmcKbGlicmFyeShyZWFkcikgICAgICAgICAjIHdvcmtpbmcgd2l0aCBjc3YgZGF0YQoKIyBzcGF0aWFsIHBhY2thZ2VzCmxpYnJhcnkoc2YpICAgICAgICAgICAgIyB3b3JraW5nIHdpdGggc3BhdGlhbCBkYXRhCmxpYnJhcnkodGlkeWNlbnN1cykKbGlicmFyeSh0aWdyaXMpICAgICAgICAjIHRpZ2VyL2xpbmUgYXBpIGFjY2VzcwoKIyBvdGhlciBwYWNrYWdlcwpsaWJyYXJ5KGphbml0b3IpICAgICAgICMgZnJlcXVlbmN5IHRhYmxlcwpsaWJyYXJ5KGhlcmUpICAgICAgICAgICMgZmlsZSBwYXRoIG1hbmFnZW1lbnQKbGlicmFyeShrbml0cikgICAgICAgICAjIG91dHB1dApsaWJyYXJ5KHRlc3R0aGF0KSAgICAgICMgdW5pdCB0ZXN0aW5nCmBgYAoKIyMgQ3JlYXRlIERhdGEKRGF0YSBkb3dubG9hZGVkIGZyb20gdGhlIFNUTE1QRCB3ZWJzaXRlIGNvbWUgaW4gYC5jc3ZgIGZvcm1hdCBidXQgd2l0aCB0aGUgd3JvbmcgZmlsZSBleHRlbnNpb24uIFRoZSBmb2xsb3dpbmcgYmFzaCBzY3JpcHQgY29waWVzIHRoZW0gdG8gYSBuZXcgc3ViZGlyZWN0b3J5IGFuZCBmaXhlcyB0aGUgZmlsZSBleHRlbnNpb24gaXNzdWU6CgpgYGB7YmFzaH0KIyBjaGFuZ2Ugd29ya2luZyBkaXJlY3RvcnkKY2QgLi4KIyBleGVjdXRlIGNsZWFuaW5nIHNjcmlwdApiYXNoIHNvdXJjZS9yZWZvcm1hdEhUTUwuc2gKYGBgCgojIyBMb2FkIERhdGEKV2l0aCBvdXIgZGF0YSByZW5hbWVkLCB3ZSBidWlsZCBhIHllYXIgbGlzdCBvYmplY3RzIGZvciAyMDE2LCAyMDE3LCBhbmQgMjAxOCBjcmltZXM6CgpgYGB7ciBsb2FkLWRhdGF9CmRhdGEyMDE1IDwtIGNzX2xvYWRfeWVhcihoZXJlKCJkYXRhIiwgImludGVybWVkaWF0ZSIsICIyMDE1IikpCmRhdGEyMDE2IDwtIGNzX2xvYWRfeWVhcihoZXJlKCJkYXRhIiwgImludGVybWVkaWF0ZSIsICIyMDE2IikpCmRhdGEyMDE3IDwtIGNzX2xvYWRfeWVhcihoZXJlKCJkYXRhIiwgImludGVybWVkaWF0ZSIsICIyMDE3IikpCmRhdGEyMDE4IDwtIGNzX2xvYWRfeWVhcihoZXJlKCJkYXRhIiwgImludGVybWVkaWF0ZSIsICIyMDE4IikpCmBgYAoKIyMgVmFsaWRhdGUgRGF0YQojIyMgMjAxNQpOZXh0IHdlIG1ha2Ugc3VyZSB0aGVyZSBhcmUgbm8gcHJvYmxlbXMgd2l0aCB0aGUgY3JpbWUgZmlsZXMgaW4gdGVybXMgb2YgaW5jb25ncnVlbnQgY29sdW1ucyBmb3IgMjAxNToKCmBgYHtyIHZhbGlkYXRlLWRhdGExNX0KY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNSwgeWVhciA9ICIyMDE1IikKYGBgCgpXZSBjYW4gdXNlIHRoZSBgdmVyYm9zZSA9IFRSVUVgIG9wdGlvbiBvbiBgY3NfdmFsaWRhdGVfeWVhcigpYCB0byBpZGVudGlmeSBhcmVhcyB3aGVyZSB0aGUgdmFsaWRhdGlvbiBjaGVja3MgaGF2ZSBmYWlsZWQ6CgpgYGB7ciB2YWxpZGF0ZS1kYXRhMTUtdn0KY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxNSwgeWVhciA9ICIyMDE1IiwgdmVyYm9zZSA9IFRSVUUpCmBgYAoKU2luY2UgdGhoZXJlIGFyZSBvbmx5IGlzc3VlcyB3aXRoIHRoZSBjbGFzcyB2YWxpZGF0aW9uLCB3ZSdyZSBnb2luZyB0byBjb25zaWRlciB0aGVzZSB2YWxpZGF0ZWQgZm9yIG5vdy4KCiMjIyAyMDE1CldlJ2xsIHJlcGVhdCB0aGUgc2FtZSB2YWxpZGF0aW9uIGZvciAyMDE2OgoKYGBge3IgdmFsaWRhdGUtZGF0YTE2fQpjc192YWxpZGF0ZV95ZWFyKGRhdGEyMDE2LCB5ZWFyID0gIjIwMTYiKQpgYGAKCldlIGNhbiB1c2UgdGhlIGB2ZXJib3NlID0gVFJVRWAgb3B0aW9uIG9uIGBjc192YWxpZGF0ZV95ZWFyKClgIHRvIGlkZW50aWZ5IGFyZWFzIHdoZXJlIHRoZSB2YWxpZGF0aW9uIGNoZWNrcyBoYXZlIGZhaWxlZDoKCmBgYHtyIHZhbGlkYXRlLWRhdGExNi12fQpjc192YWxpZGF0ZV95ZWFyKGRhdGEyMDE2LCB5ZWFyID0gIjIwMTYiLCB2ZXJib3NlID0gVFJVRSkKYGBgCgpTaW5jZSB0aGhlcmUgYXJlIG9ubHkgaXNzdWVzIHdpdGggdGhlIGNsYXNzIHZhbGlkYXRpb24sIHdlJ3JlIGdvaW5nIHRvIGNvbnNpZGVyIHRoZXNlIHZhbGlkYXRlZCBmb3Igbm93LgoKIyMjIDIwMTcKCkFsbCBvZiB0aGUgZGF0YSBwYXNzZXMgdGhlIHZhbGlkYXRpb24gY2hlY2tzLgoKYGBge3IgdmFsaWRhdGUtZGF0YTE3fQpjc192YWxpZGF0ZV95ZWFyKGRhdGEyMDE3LCB5ZWFyID0gIjIwMTciKQpgYGAKCldlIGNhbiB1c2UgdGhlIGB2ZXJib3NlID0gVFJVRWAgb3B0aW9uIG9uIGBjc192YWxpZGF0ZV95ZWFyKClgIHRvIGlkZW50aWZ5IGFyZWFzIHdoZXJlIHRoZSB2YWxpZGF0aW9uIGNoZWNrcyBoYXZlIGZhaWxlZDoKCmBgYHtyIHZhbGlkYXRlLWRhdGExNy12fQpjc192YWxpZGF0ZV95ZWFyKGRhdGEyMDE3LCB5ZWFyID0gIjIwMTciLCB2ZXJib3NlID0gVFJVRSkKYGBgCgpUaGUgZGF0YSBmb3IgTWF5IDIwMTcgZG8gbm90IHBhc3MgdGhlIHZhbGlkYXRpb24gY2hlY2tzLiBXZSBjYW4gZXh0cmFjdCB0aGlzIG1vbnRoIGFuZCBjb25maXJtIHRoYXQgdGhlcmUgYXJlIHRvbyBtYW55IGNvbHVtbnMgaW4gdGhlIE1heSAyMDE3IHJlbGVhc2UuIE9uY2Ugd2UgaGF2ZSB0aGF0IGNvbmZpcm1lZCwgd2UgY2FuIHN0YW5kYXJkaXplIHRoYXQgbW9udGggYW5kIHJlLXJ1biBvdXIgdmFsaWRhdGlvbi4KCmBgYHtyIGZpeC1tYXktY29sc30KIyBleHRyYWN0IGRhdGEKbWF5MjAxNyA8LSBjc19leHRyYWN0X21vbnRoKGRhdGEyMDE3LCBtb250aCA9ICJNYXkiKQojIHVuaXQgdGVzdCBjb2x1bW4gbnVtYmVyCmV4cGVjdF9lcXVhbChuY29sKG1heTIwMTcpLCAyNikKIyByZW1vdmUgb2JqZWN0CnJtKG1heTIwMTcpCiMgc3RhbmRhcmRpemUgbW9udGhzCmRhdGEyMDE3IDwtIGNzX3N0YW5kYXJkaXplKGRhdGEyMDE3LCBtb250aCA9ICJNYXkiLCBjb25maWcgPSAyNikKIyB2YWxpZGF0ZSBkYXRhCmNzX3ZhbGlkYXRlX3llYXIoZGF0YTIwMTcsIHllYXIgPSAiMjAxNyIpCmBgYAoKV2Ugc3RpbGwgZ2V0IGEgYEZBTFNFYCB2YWx1ZSBmb3IgYGNzX3ZhbGlkYXRlX3llYXIoKWA6CgpgYGB7ciB2YWxpZGF0ZS1kYXRhMTctdjJ9CmNzX3ZhbGlkYXRlX3llYXIoZGF0YTIwMTcsIHllYXIgPSAiMjAxNyIsIHZlcmJvc2UgPSBUUlVFKQpgYGAKCldlJ3ZlIG5vdyBsaW1pdGVkIHRoZSB2YWxpZGF0aW9uIGlzc3VlcyB0byB0aGUgY2xhc3Nlcy4KCiMjIyAyMDE4CkZpbmFsbHksIHdlJ2xsIGF0dGVtcHQgdG8gdmFsaWRhdGUgdGhlIDIwMTggZGF0YToKCmBgYHtyIHZhbGlkYXRlLWRhdGExOH0KY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxOCwgeWVhciA9ICIyMDE4IikKYGBgCgpOb3cgd2l0aCB0aGUgYHZlcmJvc2UgPSBUUlVFYCBvcHRpb246CgpgYGB7ciB2YWxpZGF0ZS1kYXRhMTgtdn0KY3NfdmFsaWRhdGVfeWVhcihkYXRhMjAxOCwgeWVhciA9ICIyMDE4IiwgdmVyYm9zZSA9IFRSVUUpCmBgYAoKIyMgQ29sbGFwc2UgRGF0YQpXaXRoIHRoZSBkYXRhIHZhbGlkYXRlZCwgd2UgY29sbGFwc2UgZWFjaCB5ZWFyIGludG8gYSBzaW5nbGUsIGZsYXQgb2JqZWN0OgoKYGBge3IgY29sbGFwc2UtZGF0YX0KZGF0YTIwMTVfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxNSkKZGF0YTIwMTZfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxNikKZGF0YTIwMTdfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxNykKZGF0YTIwMThfZmxhdCA8LSBjc19jb2xsYXBzZShkYXRhMjAxOCkKYGBgCgpXaGF0IHdlIG5lZWQgZm9yIHRoaXMgcHJvamVjdCBpcyBhIHNpbmdsZSBvYmplY3Qgd2l0aCBvbmx5IHRoZSBjcmltZXMgZm9yIDIwMTYuIFNpbmNlIGNyaW1lcyB3ZXJlICpyZXBvcnRlZCogaW4gc3Vic2VxdWVudCB5ZWFycyBmb3IgMjAxNSAoYXMgd2VsbCBhcyAyMDE2IGFuZCAyMDE3KSwgd2UgbmVlZCB0byBtZXJnZSBhbGwgdGhlIHRhYmxlcyBhbmQgdGhlbiByZXRhaW4gb25seSB0aGUgcmVsZXZhbnQgeWVhcidzIGRhdGEuIFRoZSBgY3NfY29tYmluZSgpYCBmdW5jdGlvbiB3aWxsIGRvIHRoaXM6CgpgYGB7ciBjb21iaW5lLWRhdGF9CmNyaW1lczIwMTUgPC0gY3NfY29tYmluZSh0eXBlID0gInllYXIiLCBkYXRlID0gMjAxNSwgZGF0YTIwMTVfZmxhdCwgZGF0YTIwMTZfZmxhdCwgZGF0YTIwMTdfZmxhdCwgZGF0YTIwMThfZmxhdCkKY3JpbWVzMjAxNiA8LSBjc19jb21iaW5lKHR5cGUgPSAieWVhciIsIGRhdGUgPSAyMDE2LCBkYXRhMjAxNl9mbGF0LCBkYXRhMjAxN19mbGF0LCBkYXRhMjAxOF9mbGF0KQpjcmltZXMyMDE3IDwtIGNzX2NvbWJpbmUodHlwZSA9ICJ5ZWFyIiwgZGF0ZSA9IDIwMTcsIGRhdGEyMDE3X2ZsYXQsIGRhdGEyMDE4X2ZsYXQpCmNyaW1lczIwMTggPC0gY3NfY29tYmluZSh0eXBlID0gInllYXIiLCBkYXRlID0gMjAxOCwgZGF0YTIwMThfZmxhdCkKYGBgCgojIyMgQ2xlYW4tdXAgRW52aW9ybm1lbnQKV2l0aCBvdXIgZGF0YSBjcmVhdGVkLCB3ZSBjYW4gcmVtb3ZlIHNvbWUgb2YgdGhlIGludGVybWVkaWFyeSBvYmplY3RzIHdlJ3ZlIGNyZWF0ZWQ6CgpgYGB7ciBybS1pbml0aWFsLW9iamVjdHN9CnJtKGRhdGEyMDE1LCBkYXRhMjAxNV9mbGF0LCBkYXRhMjAxNiwgZGF0YTIwMTZfZmxhdCwgZGF0YTIwMTcsIGRhdGEyMDE3X2ZsYXQsIGRhdGEyMDE4LCBkYXRhMjAxOF9mbGF0KQpgYGAKCiMjIFJlbW92ZSBVbmZvdW5kZWQgQ3JpbWVzIGFuZCBTdWJzZXQgQmFzZWQgb24gVHlwZSBvZiBDcmltZToKVGhlIGZvbGxvd2luZyBjb2RlIGNodW5rIHJlbW92ZXMgdW5mb3VuZGVkIGNyaW1lcyAodGhvc2Ugd2hlcmUgYENvdW50ID09IC0xYCkgYW5kIHRoZW4gY3JlYXRlcyBhIGRhdGEgZnJhbWUgZm9yIGFsbCBwYXJ0IG9uZSBjcmltZXMgZm9yIGVhY2ggeWVhci4gV2UgYWxzbyBwcmludCB0aGUgbnVtYmVyIG9mIGNyaW1lcyBtaXNzaW5nIHNwYXRpYWwgZGF0YS4gSW4gZ2VuZXJhbCwgdGhlc2UgdGVuZCB0byBiZSByYXBlcy4KCiMjIyAyMDE1CgpgYGB7ciBzdWJzZXQtZGF0YS0xNX0KY3JpbWVzMjAxNSAlPiUgCiAgY3NfZmlsdGVyX2NvdW50KHZhciA9IENvdW50KSAlPiUKICBjc19maWx0ZXJfY3JpbWUodmFyID0gQ3JpbWUsIGNyaW1lID0gIlBhcnQgMSIpICU+JQogIGNzX2NyaW1lX2NhdCh2YXIgPSBDcmltZSwgbmV3VmFyID0gY3JpbWVDYXQsIG91dHB1dCA9ICJzdHJpbmciKSAlPiUKICBjc19taXNzaW5nX3h5KHZhcnggPSBYQ29vcmQsIHZhcnkgPSBZQ29vcmQsIG5ld1ZhciA9IHh5U3RhdHVzKSAlPiUKICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCAKICAgICAgICAgSUxFQURTQWRkcmVzcywgSUxFQURTU3RyZWV0LCBYQ29vcmQsIFlDb29yZCwgeHlTdGF0dXMpIC0+IHAxXzIwMTUKCnAxXzIwMTUgJT4lCiAgdGFieWwoeHlTdGF0dXMpICU+JQogIGFkb3JuX3BjdF9mb3JtYXR0aW5nKGRpZ2l0cyA9IDMpICU+JQogIGthYmxlKCkKYGBgCgpgYGB7ciB0YWJsZS1jcmltZUNhdC0yMDE1fQpwMV8yMDE1ICU+JQogIHRhYnlsKGNyaW1lQ2F0KSAlPiUKICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiUKICBrYWJsZSgpCmBgYAoKIyMjIDIwMTYKCmBgYHtyIHN1YnNldC1kYXRhLTE2fQpjcmltZXMyMDE2ICU+JSAKICBjc19maWx0ZXJfY291bnQodmFyID0gQ291bnQpICU+JQogIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSAiUGFydCAxIikgJT4lCiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gInN0cmluZyIpICU+JQogIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JQogIHNlbGVjdChDb21wbGFpbnQsIERhdGVPY2N1ciwgQ3JpbWUsIGNyaW1lQ2F0LCBEaXN0cmljdCwgRGVzY3JpcHRpb24sIAogICAgICAgICBJTEVBRFNBZGRyZXNzLCBJTEVBRFNTdHJlZXQsIFhDb29yZCwgWUNvb3JkLCB4eVN0YXR1cykgLT4gcDFfMjAxNgoKcDFfMjAxNiAlPiUKICB0YWJ5bCh4eVN0YXR1cykgJT4lCiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lCiAga2FibGUoKQpgYGAKCgpgYGB7ciB0YWJsZS1jcmltZUNhdC0yMDE2fQpwMV8yMDE2ICU+JQogIHRhYnlsKGNyaW1lQ2F0KSAlPiUKICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiUKICBrYWJsZSgpCmBgYAoKCiMjIyAyMDE3CgpgYGB7ciBzdWJzZXQtZGF0YS0xN30KY3JpbWVzMjAxNyAlPiUgCiAgY3NfZmlsdGVyX2NvdW50KHZhciA9IENvdW50KSAlPiUKICBjc19maWx0ZXJfY3JpbWUodmFyID0gQ3JpbWUsIGNyaW1lID0gIlBhcnQgMSIpICU+JQogIGNzX2NyaW1lX2NhdCh2YXIgPSBDcmltZSwgbmV3VmFyID0gY3JpbWVDYXQsIG91dHB1dCA9ICJzdHJpbmciKSAlPiUKICBjc19taXNzaW5nX3h5KHZhcnggPSBYQ29vcmQsIHZhcnkgPSBZQ29vcmQsIG5ld1ZhciA9IHh5U3RhdHVzKSAlPiUKICBzZWxlY3QoQ29tcGxhaW50LCBEYXRlT2NjdXIsIENyaW1lLCBjcmltZUNhdCwgRGlzdHJpY3QsIERlc2NyaXB0aW9uLCAKICAgICAgICAgSUxFQURTQWRkcmVzcywgSUxFQURTU3RyZWV0LCBYQ29vcmQsIFlDb29yZCwgeHlTdGF0dXMpIC0+IHAxXzIwMTcKCnAxXzIwMTcgJT4lCiAgdGFieWwoeHlTdGF0dXMpICU+JQogIGFkb3JuX3BjdF9mb3JtYXR0aW5nKGRpZ2l0cyA9IDMpICU+JQogIGthYmxlKCkKYGBgCgpgYGB7ciB0YWJsZS1jcmltZUNhdC0yMDE3fQpwMV8yMDE3ICU+JQogIHRhYnlsKGNyaW1lQ2F0KSAlPiUKICBhZG9ybl9wY3RfZm9ybWF0dGluZyhkaWdpdHMgPSAzKSAlPiUKICBrYWJsZSgpCmBgYAoKIyMjIDIwMTgKCmBgYHtyIHN1YnNldC1kYXRhLTE4fQpjcmltZXMyMDE4ICU+JSAKICBjc19maWx0ZXJfY291bnQodmFyID0gQ291bnQpICU+JQogIGNzX2ZpbHRlcl9jcmltZSh2YXIgPSBDcmltZSwgY3JpbWUgPSAiUGFydCAxIikgJT4lCiAgY3NfY3JpbWVfY2F0KHZhciA9IENyaW1lLCBuZXdWYXIgPSBjcmltZUNhdCwgb3V0cHV0ID0gInN0cmluZyIpICU+JQogIGNzX21pc3NpbmdfeHkodmFyeCA9IFhDb29yZCwgdmFyeSA9IFlDb29yZCwgbmV3VmFyID0geHlTdGF0dXMpICU+JQogIHNlbGVjdChDb21wbGFpbnQsIERhdGVPY2N1ciwgQ3JpbWUsIGNyaW1lQ2F0LCBEaXN0cmljdCwgRGVzY3JpcHRpb24sIAogICAgICAgICBJTEVBRFNBZGRyZXNzLCBJTEVBRFNTdHJlZXQsIFhDb29yZCwgWUNvb3JkLCB4eVN0YXR1cykgLT4gcDFfMjAxOAoKcDFfMjAxOCAlPiUKICB0YWJ5bCh4eVN0YXR1cykgJT4lCiAgYWRvcm5fcGN0X2Zvcm1hdHRpbmcoZGlnaXRzID0gMykgJT4lCiAga2FibGUoKQpgYGAKCmBgYHtyIHRhYmxlLWNyaW1lQ2F0LTIwMTh9CnAxXzIwMTggJT4lCiAgdGFieWwoY3JpbWVDYXQpICU+JQogIGFkb3JuX3BjdF9mb3JtYXR0aW5nKGRpZ2l0cyA9IDMpICU+JQogIGthYmxlKCkKYGBgCgojIyBDbGVhbiBFbnZpb3JubWVudAoKYGBge3J9CnJtKGNyaW1lczIwMTUsIGNyaW1lczIwMTYsIGNyaW1lczIwMTcsIGNyaW1lczIwMTgpCmBgYAoKIyMgQ3JlYXRlIFZpb2xlbnQgQ3JpbWUgRGF0YSBGcmFtZXMKCmBgYHtyfQp2Y18yMDE1IDwtIGNzX2ZpbHRlcl9jcmltZShwMV8yMDE1LCB2YXIgPSBDcmltZSwgY3JpbWUgPSAidmlvbGVudCIpCnZjXzIwMTYgPC0gY3NfZmlsdGVyX2NyaW1lKHAxXzIwMTYsIHZhciA9IENyaW1lLCBjcmltZSA9ICJ2aW9sZW50IikKdmNfMjAxNyA8LSBjc19maWx0ZXJfY3JpbWUocDFfMjAxNywgdmFyID0gQ3JpbWUsIGNyaW1lID0gInZpb2xlbnQiKQp2Y18yMDE4IDwtIGNzX2ZpbHRlcl9jcmltZShwMV8yMDE4LCB2YXIgPSBDcmltZSwgY3JpbWUgPSAidmlvbGVudCIpCmBgYAoKIyMgUHJvamVjdCBEYXRhCldlIHByb2plY3QgdGhlIG1haW4gc2V0IG9mIHByZXZpb3VzbHkgZ2VvY29kZWQgZGF0YSwgcmVtb3ZlIGV4Y2VzcyBjb2x1bW5zLCBhbmQgdHJhbnNmb3JtIHRoZSBkYXRhIHRvIE5BRCAxOTgzOgoKYGBge3IgcHJvamVjdC12YWxpZH0KcDFfMjAxNSAlPiUKICBzdF9hc19zZihjb29yZHMgPSBjKCJYQ29vcmQiLCAiWUNvb3JkIiksIGNycyA9IDEwMjY5NikgJT4lCiAgc2VsZWN0KC14eVN0YXR1cykgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpIC0+IHAxXzIwMTUKCnAxXzIwMTYgJT4lCiAgc3RfYXNfc2YoY29vcmRzID0gYygiWENvb3JkIiwgIllDb29yZCIpLCBjcnMgPSAxMDI2OTYpICU+JQogIHNlbGVjdCgteHlTdGF0dXMpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiBwMV8yMDE2CgpwMV8yMDE3ICU+JQogIHN0X2FzX3NmKGNvb3JkcyA9IGMoIlhDb29yZCIsICJZQ29vcmQiKSwgY3JzID0gMTAyNjk2KSAlPiUKICBzZWxlY3QoLXh5U3RhdHVzKSAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgLT4gcDFfMjAxNwoKcDFfMjAxOCAlPiUKICBzdF9hc19zZihjb29yZHMgPSBjKCJYQ29vcmQiLCAiWUNvb3JkIiksIGNycyA9IDEwMjY5NikgJT4lCiAgc2VsZWN0KC14eVN0YXR1cykgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpIC0+IHAxXzIwMTgKCnZjXzIwMTUgJT4lCiAgc3RfYXNfc2YoY29vcmRzID0gYygiWENvb3JkIiwgIllDb29yZCIpLCBjcnMgPSAxMDI2OTYpICU+JQogIHNlbGVjdCgteHlTdGF0dXMpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiB2Y18yMDE1Cgp2Y18yMDE2ICU+JQogIHN0X2FzX3NmKGNvb3JkcyA9IGMoIlhDb29yZCIsICJZQ29vcmQiKSwgY3JzID0gMTAyNjk2KSAlPiUKICBzZWxlY3QoLXh5U3RhdHVzKSAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgLT4gdmNfMjAxNgoKdmNfMjAxNyAlPiUKICBzdF9hc19zZihjb29yZHMgPSBjKCJYQ29vcmQiLCAiWUNvb3JkIiksIGNycyA9IDEwMjY5NikgJT4lCiAgc2VsZWN0KC14eVN0YXR1cykgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpIC0+IHZjXzIwMTcKCnZjXzIwMTggJT4lCiAgc3RfYXNfc2YoY29vcmRzID0gYygiWENvb3JkIiwgIllDb29yZCIpLCBjcnMgPSAxMDI2OTYpICU+JQogIHNlbGVjdCgteHlTdGF0dXMpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAtPiB2Y18yMDE4CmBgYAoKIyMgU3BhdGlhbCBKb2luIHdpdGggTmVpZ2hib3Job29kIERhdGEKCmBgYHtyfQpzdF9yZWFkKGhlcmUoImRhdGEiLCAicmF3IiwgIm5ob29kIiwgIlNUTF9CT1VOREFSWV9OaG9vZHMuc2hwIiksIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgLT4gbmhvb2RzCgpuaG9vZHMgJT4lCiAgZmlsdGVyKE5IRF9OQU1FID09ICJTaGF3IikgJT4lCiAgc2VsZWN0KE5IRF9OVU0sIE5IRF9OQU1FKSAtPiBzaGF3CgpybShuaG9vZHMpCmBgYAoKYGBge3J9CnAxXzIwMTUgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lCiAgc3RfaW50ZXJzZWN0aW9uKC4sIHNoYXcpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAlPiUKICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxNV9zaGF3CgpwMV8yMDE2ICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSAxMDI2OTYpICU+JQogIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgJT4lCiAgc2VsZWN0KC1OSERfTkFNRSwgLU5IRF9OVU0pIC0+IHAxXzIwMTZfc2hhdwoKcDFfMjAxNyAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gMTAyNjk2KSAlPiUKICBzdF9pbnRlcnNlY3Rpb24oLiwgc2hhdykgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JQogIHNlbGVjdCgtTkhEX05BTUUsIC1OSERfTlVNKSAtPiBwMV8yMDE3X3NoYXcKCnAxXzIwMTggJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lCiAgc3RfaW50ZXJzZWN0aW9uKC4sIHNoYXcpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAlPiUKICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gcDFfMjAxOF9zaGF3Cgp2Y18yMDE1ICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSAxMDI2OTYpICU+JQogIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgJT4lCiAgc2VsZWN0KC1OSERfTkFNRSwgLU5IRF9OVU0pIC0+IHZjXzIwMTVfc2hhdwoKdmNfMjAxNiAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gMTAyNjk2KSAlPiUKICBzdF9pbnRlcnNlY3Rpb24oLiwgc2hhdykgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDQyNjkpICU+JQogIHNlbGVjdCgtTkhEX05BTUUsIC1OSERfTlVNKSAtPiB2Y18yMDE2X3NoYXcKCnZjXzIwMTcgJT4lCiAgc3RfdHJhbnNmb3JtKGNycyA9IDEwMjY5NikgJT4lCiAgc3RfaW50ZXJzZWN0aW9uKC4sIHNoYXcpICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSA0MjY5KSAlPiUKICBzZWxlY3QoLU5IRF9OQU1FLCAtTkhEX05VTSkgLT4gdmNfMjAxN19zaGF3Cgp2Y18yMDE4ICU+JQogIHN0X3RyYW5zZm9ybShjcnMgPSAxMDI2OTYpICU+JQogIHN0X2ludGVyc2VjdGlvbiguLCBzaGF3KSAlPiUKICBzdF90cmFuc2Zvcm0oY3JzID0gNDI2OSkgJT4lCiAgc2VsZWN0KC1OSERfTkFNRSwgLU5IRF9OVU0pIC0+IHZjXzIwMThfc2hhdwpgYGAKCiMjIFdyaXRlIFNoYXBlZmlsZXMKCmBgYHtyfQpzdF93cml0ZShwMV8yMDE1X3NoYXcsIGhlcmUoImRhdGEiLCAiY2xlYW4iLCAiUGFydCAxIiwgIjIwMTUiLCAiU0hBV19QYXJ0MV8yMDE1LnNocCIpLCBkZWxldGVfZHNuID0gVFJVRSkKc3Rfd3JpdGUocDFfMjAxNl9zaGF3LCBoZXJlKCJkYXRhIiwgImNsZWFuIiwgIlBhcnQgMSIsICIyMDE2IiwgIlNIQVdfUGFydDFfMjAxNi5zaHAiKSwgZGVsZXRlX2RzbiA9IFRSVUUpCnN0X3dyaXRlKHAxXzIwMTdfc2hhdywgaGVyZSgiZGF0YSIsICJjbGVhbiIsICJQYXJ0IDEiLCAiMjAxNyIsICJTSEFXX1BhcnQxXzIwMTcuc2hwIiksIGRlbGV0ZV9kc24gPSBUUlVFKQpzdF93cml0ZShwMV8yMDE4X3NoYXcsIGhlcmUoImRhdGEiLCAiY2xlYW4iLCAiUGFydCAxIiwgIjIwMTgiLCAiU0hBV19QYXJ0MV8yMDE4LnNocCIpLCBkZWxldGVfZHNuID0gVFJVRSkKc3Rfd3JpdGUodmNfMjAxNV9zaGF3LCBoZXJlKCJkYXRhIiwgImNsZWFuIiwgIlZpb2xlbnQiLCAiMjAxNSIsICJTSEFXX1Zpb2xlbnRfMjAxNS5zaHAiKSwgZGVsZXRlX2RzbiA9IFRSVUUpCnN0X3dyaXRlKHZjXzIwMTZfc2hhdywgaGVyZSgiZGF0YSIsICJjbGVhbiIsICJWaW9sZW50IiwgIjIwMTYiLCAiU0hBV19WaW9sZW50XzIwMTYuc2hwIiksIGRlbGV0ZV9kc24gPSBUUlVFKQpzdF93cml0ZSh2Y18yMDE3X3NoYXcsIGhlcmUoImRhdGEiLCAiY2xlYW4iLCAiVmlvbGVudCIsICIyMDE3IiwgIlNIQVdfVmlvbGVudF8yMDE3LnNocCIpLCBkZWxldGVfZHNuID0gVFJVRSkKc3Rfd3JpdGUodmNfMjAxOF9zaGF3LCBoZXJlKCJkYXRhIiwgImNsZWFuIiwgIlZpb2xlbnQiLCAiMjAxOCIsICJTSEFXX1Zpb2xlbnRfMjAxOC5zaHAiKSwgZGVsZXRlX2RzbiA9IFRSVUUpCnN0X3dyaXRlKHNoYXcsIGhlcmUoImRhdGEiLCAiY2xlYW4iLCAiU2hhdyIsICJTSEFXX0JvdW5kYXJ5LnNocCIpLCBkZWxldGVfZHNuID0gVFJVRSkKYGBgCgojIyBDcmltZSBSYXRlcwoKYGBge3J9CnllYXJzIDwtIGMoMjAxNSwgMjAxNiwgMjAxNykKCnllYXJzICU+JQogIHVubGlzdCh5ZWFycykgJT4lCiAgcHVycnI6OjptYXBfZGYofiBnZXRfYWNzKHllYXIgPSAueCwgZ2VvZ3JhcGh5ID0gImNvdW50eSIsIHZhcmlhYmxlID0gIkIwMTAwM18wMDEiLCBzdGF0ZSA9IDI5LCBjb3VudHkgPSA1MTApKSAtPiBjaXR5UG9wCgp0cmFjdDE1IDwtIGdldF9hY3MoeWVhciA9IDIwMTUsIGdlb2dyYXBoeSA9ICJ0cmFjdCIsIHZhcmlhYmxlID0gIkIwMTAwM18wMDEiLCAKICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgPSAyOSwgY291bnR5ID0gNTEwKQoKdHJhY3QxNiA8LSBnZXRfYWNzKHllYXIgPSAyMDE2LCBnZW9ncmFwaHkgPSAidHJhY3QiLCB2YXJpYWJsZSA9ICJCMDEwMDNfMDAxIiwgCiAgICAgICAgICAgICAgICAgICAgICAgIHN0YXRlID0gMjksIGNvdW50eSA9IDUxMCkKCnRyYWN0MTcgPC0gZ2V0X2Fjcyh5ZWFyID0gMjAxNywgZ2VvZ3JhcGh5ID0gInRyYWN0IiwgdmFyaWFibGUgPSAiQjAxMDAzXzAwMSIsIAogICAgICAgICAgICAgICAgICAgICAgICBzdGF0ZSA9IDI5LCBjb3VudHkgPSA1MTApCgp0cmFjdHMgPC0gdGlncmlzOjp0cmFjdHMoc3RhdGUgPSAyOSwgY291bnQgPSA1MTAsIGNsYXNzID0gInNmIikKdHJhY3RzIDwtIHNlbGVjdCh0cmFjdHMsIEdFT0lEKQoKdHJhY3QxNSA8LSBsZWZ0X2pvaW4odHJhY3RzLCB0cmFjdDE1LCBieSA9ICJHRU9JRCIpCnRyYWN0MTUgPC0gc3RfdHJhbnNmb3JtKHRyYWN0MTUsIGNycyA9IDEwMjY5NikKCnRyYWN0MTYgPC0gbGVmdF9qb2luKHRyYWN0cywgdHJhY3QxNiwgYnkgPSAiR0VPSUQiKQp0cmFjdDE2IDwtIHN0X3RyYW5zZm9ybSh0cmFjdDE2LCBjcnMgPSAxMDI2OTYpCgp0cmFjdDE3IDwtIGxlZnRfam9pbih0cmFjdHMsIHRyYWN0MTcsIGJ5ID0gIkdFT0lEIikKdHJhY3QxNyA8LSBzdF90cmFuc2Zvcm0odHJhY3QxNywgY3JzID0gMTAyNjk2KQoKcm0odHJhY3RzKQpgYGAKCgpgYGB7cn0Kc2hhdzE1IDwtIGFyZWFsOjphd19pbnRlcnBvbGF0ZShzaGF3LCB0aWQgPSBOSERfTlVNLCBzb3VyY2UgPSB0cmFjdDE1LCBzaWQgPSBHRU9JRCwgCiAgICAgICAgICAgICAgICAgICAgICB3ZWlnaHQgPSAidG90YWwiLCBvdXRwdXQgPSAidGliYmxlIiwgZXh0ZW5zaXZlID0gImVzdGltYXRlIikKCnNoYXcxNiA8LSBhcmVhbDo6YXdfaW50ZXJwb2xhdGUoc2hhdywgdGlkID0gTkhEX05VTSwgc291cmNlID0gdHJhY3QxNiwgc2lkID0gR0VPSUQsIAogICAgICAgICAgICAgICAgICAgICAgd2VpZ2h0ID0gInRvdGFsIiwgb3V0cHV0ID0gInRpYmJsZSIsIGV4dGVuc2l2ZSA9ICJlc3RpbWF0ZSIpCgpzaGF3MTcgPC0gYXJlYWw6OmF3X2ludGVycG9sYXRlKHNoYXcsIHRpZCA9IE5IRF9OVU0sIHNvdXJjZSA9IHRyYWN0MTcsIHNpZCA9IEdFT0lELCAKICAgICAgICAgICAgICAgICAgICAgIHdlaWdodCA9ICJ0b3RhbCIsIG91dHB1dCA9ICJ0aWJibGUiLCBleHRlbnNpdmUgPSAiZXN0aW1hdGUiKQoKcm0odHJhY3QxNSwgdHJhY3QxNiwgdHJhY3QxNykKYGBgCgoKYGBge3J9Cm11cmRlcl8yMDE1IDwtIGZpbHRlcih2Y18yMDE1LCBjcmltZUNhdCA9PSAiSG9taWNpZGUiKQptdXJkZXJfMjAxNiA8LSBmaWx0ZXIodmNfMjAxNiwgY3JpbWVDYXQgPT0gIkhvbWljaWRlIikKbXVyZGVyXzIwMTcgPC0gZmlsdGVyKHZjXzIwMTcsIGNyaW1lQ2F0ID09ICJIb21pY2lkZSIpCm11cmRlcl8yMDE4IDwtIGZpbHRlcih2Y18yMDE4LCBjcmltZUNhdCA9PSAiSG9taWNpZGUiKQoKbXVyZGVyXzIwMTVfc2hhdyA8LSBmaWx0ZXIodmNfMjAxNV9zaGF3LCBjcmltZUNhdCA9PSAiSG9taWNpZGUiKQptdXJkZXJfMjAxNl9zaGF3IDwtIGZpbHRlcih2Y18yMDE2X3NoYXcsIGNyaW1lQ2F0ID09ICJIb21pY2lkZSIpCm11cmRlcl8yMDE3X3NoYXcgPC0gZmlsdGVyKHZjXzIwMTdfc2hhdywgY3JpbWVDYXQgPT0gIkhvbWljaWRlIikKbXVyZGVyXzIwMThfc2hhdyA8LSBmaWx0ZXIodmNfMjAxOF9zaGF3LCBjcmltZUNhdCA9PSAiSG9taWNpZGUiKQpgYGAKCmBgYHtyfQpjaXR5Q3JpbWUgPC0gZGF0YS5mcmFtZSgKICB5ZWFyID0gYygyMDE1LCAyMDE2LCAyMDE3LCAyMDE4KSwKICBwb3AgPSBjKGNpdHlQb3AkZXN0aW1hdGVbMV0sIGNpdHlQb3AkZXN0aW1hdGVbMl0sIGNpdHlQb3AkZXN0aW1hdGVbM10sIGNpdHlQb3AkZXN0aW1hdGVbM10pLAogIGhvbWljaWRlQ291bnQgPSBjKG5yb3cobXVyZGVyXzIwMTUpLCBucm93KG11cmRlcl8yMDE2KSwgbnJvdyhtdXJkZXJfMjAxNyksIG5yb3cobXVyZGVyXzIwMTgpKSwKICB2Y0NvdW50ID0gYyhucm93KHZjXzIwMTUpLCBucm93KHZjXzIwMTYpLCBucm93KHZjXzIwMTcpLCBucm93KHZjXzIwMTgpKSwKICBwMUNvdW50ID0gYyhucm93KHAxXzIwMTUpLCBucm93KHAxXzIwMTYpLCBucm93KHAxXzIwMTcpLCBucm93KHAxXzIwMTgpKSwKICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UKKQoKY2l0eUNyaW1lICU+JQogIG11dGF0ZShjaXR5X2hvbWljaWRlUmF0ZSA9IChob21pY2lkZUNvdW50L3BvcCkqMTAwMDAwKSAlPiUKICBtdXRhdGUoY2l0eV92Y1JhdGUgPSAodmNDb3VudC9wb3ApKjEwMDAwMCkgJT4lCiAgbXV0YXRlKGNpdHlfcDFSYXRlID0gKHAxQ291bnQvcG9wKSoxMDAwMDApIC0+IGNpdHlDcmltZQoKc2hhd0NyaW1lIDwtIGRhdGEuZnJhbWUoCiAgeWVhciA9IGMoMjAxNSwgMjAxNiwgMjAxNywgMjAxOCksCiAgcG9wID0gYyhzaGF3MTUkZXN0aW1hdGUsIHNoYXcxNiRlc3RpbWF0ZSwgc2hhdzE3JGVzdGltYXRlLCBzaGF3MTckZXN0aW1hdGUpLAogIGhvbWljaWRlQ291bnQgPSBjKG5yb3cobXVyZGVyXzIwMTVfc2hhdyksIG5yb3cobXVyZGVyXzIwMTZfc2hhdyksIG5yb3cobXVyZGVyXzIwMTdfc2hhdyksIG5yb3cobXVyZGVyXzIwMThfc2hhdykpLAogIHZjQ291bnQgPSBjKG5yb3codmNfMjAxNV9zaGF3KSwgbnJvdyh2Y18yMDE2X3NoYXcpLCBucm93KHZjXzIwMTdfc2hhdyksIG5yb3codmNfMjAxOF9zaGF3KSksCiAgcDFDb3VudCA9IGMobnJvdyhwMV8yMDE1X3NoYXcpLCBucm93KHAxXzIwMTZfc2hhdyksIG5yb3cocDFfMjAxN19zaGF3KSwgbnJvdyhwMV8yMDE4X3NoYXcpKSwKICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UKKQoKc2hhd0NyaW1lICU+JQogIG11dGF0ZShob21pY2lkZVJhdGUgPSAoaG9taWNpZGVDb3VudC9wb3ApKjEwMDAwMCkgJT4lCiAgbXV0YXRlKHZjUmF0ZSA9ICh2Y0NvdW50L3BvcCkqMTAwMDAwKSAlPiUKICBtdXRhdGUocDFSYXRlID0gKHAxQ291bnQvcG9wKSoxMDAwMDApIC0+IHNoYXdDcmltZQoKY2l0eUNyaW1lICU+JQogIHNlbGVjdCh5ZWFyLCBjaXR5X2hvbWljaWRlUmF0ZSwgY2l0eV92Y1JhdGUsIGNpdHlfcDFSYXRlKSAlPiUKICBsZWZ0X2pvaW4oc2hhd0NyaW1lLCAuLCBieSA9ICJ5ZWFyIikgJT4lCiAgbXV0YXRlKGhvbWljaWRlUmF0aW8gPSBob21pY2lkZVJhdGUvY2l0eV9ob21pY2lkZVJhdGUpICU+JQogIG11dGF0ZSh2Y1JhdGlvID0gdmNSYXRlL2NpdHlfdmNSYXRlKSAlPiUKICBtdXRhdGUocDFSYXRpbyA9IHAxUmF0ZS9jaXR5X3AxUmF0ZSkgJT4lCiAgc2VsZWN0KHllYXIsIHBvcCwgCiAgICAgICAgIGhvbWljaWRlQ291bnQsIGhvbWljaWRlUmF0ZSwgY2l0eV9ob21pY2lkZVJhdGUsIGhvbWljaWRlUmF0aW8sCiAgICAgICAgIHZjQ291bnQsIHZjUmF0ZSwgY2l0eV92Y1JhdGUsIHZjUmF0aW8sCiAgICAgICAgIHAxQ291bnQsIHAxUmF0ZSwgY2l0eV9wMVJhdGUsIHAxUmF0aW8pIC0+IHNoYXdDcmltZQoKd3JpdGVfY3N2KHNoYXdDcmltZSwgcGF0aCA9IGhlcmUoImRhdGEiLCAiY2xlYW4iLCAic2hhd0NyaW1lLmNzdiIpKQpgYGAKCgo=</div>
 
 
 

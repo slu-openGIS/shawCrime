@@ -1,0 +1,54 @@
+---
+title: "Initial 2015-2018 Data Creation"
+author: "Christopher Prener, Ph.D."
+date: '(`r format(Sys.time(), "%B %d, %Y")`)'
+output: 
+  github_document: default
+  html_notebook: default 
+---
+
+## Introduction
+This notebook contains the initial code for cleaning the 2015-2018 crime file data to create Shaw-specific shapefiles.
+
+## Dependencies
+This notebook requires:
+
+```{r load-packages}
+# primary data tools
+library(compstatr)     # work with stlmpd crime data
+
+# tidyverse packages
+library(dplyr)         # data wrangling
+library(readr)         # working with csv data
+
+# spatial packages
+library(sf)            # working with spatial data
+library(tigris)        # tiger/line api access
+
+# other packages
+library(janitor)       # frequency tables
+library(here)          # file path management
+library(knitr)         # output
+library(testthat)      # unit testing
+```
+
+## Create Data
+Data downloaded from the STLMPD website come in `.csv` format but with the wrong file extension. The following bash script copies them to a new subdirectory and fixes the file extension issue:
+
+```{bash}
+# change working directory
+cd ..
+# execute cleaning script
+bash source/reformatHTML.sh
+```
+
+## Load Data
+With our data renamed, we build a year list objects for 2016, 2017, and 2018 crimes:
+
+```{r load-data}
+data2015 <- cs_load_year(here("data", "intermediate", "2015"))
+data2016 <- cs_load_year(here("data", "intermediate", "2016"))
+data2017 <- cs_load_year(here("data", "intermediate", "2017"))
+data2018 <- cs_load_year(here("data", "intermediate", "2018"))
+```
+

@@ -485,7 +485,10 @@ shawCrime <- data.frame(
 shawCrime %>%
   mutate(homicideRate = (homicideCount/pop)*100000) %>%
   mutate(vcRate = (vcCount/pop)*100000) %>%
-  mutate(p1Rate = (p1Count/pop)*100000) -> shawCrime
+  mutate(p1Rate = (p1Count/pop)*100000) %>%
+  mutate(homicideRateS = (homicideCount/pop)*1000) %>%
+  mutate(vcRateS = (vcCount/pop)*1000) %>%
+  mutate(p1RateS = (p1Count/pop)*1000) -> shawCrime
 
 cityCrime %>%
   select(year, city_homicideRate, city_vcRate, city_p1Rate) %>%
@@ -494,9 +497,9 @@ cityCrime %>%
   mutate(vcRatio = vcRate/city_vcRate) %>%
   mutate(p1Ratio = p1Rate/city_p1Rate) %>%
   select(year, pop, 
-         homicideCount, homicideRate, city_homicideRate, homicideRatio,
-         vcCount, vcRate, city_vcRate, vcRatio,
-         p1Count, p1Rate, city_p1Rate, p1Ratio) -> shawCrime
+         homicideCount, homicideRateS, homicideRate, city_homicideRate, homicideRatio, 
+         vcCount, vcRateS, vcRate, city_vcRate, vcRatio, 
+         p1Count, p1RateS, p1Rate, city_p1Rate, p1Ratio) -> shawCrime
 
 write_csv(shawCrime, path = here("data", "clean", "shawCrime.csv"))
 ```
